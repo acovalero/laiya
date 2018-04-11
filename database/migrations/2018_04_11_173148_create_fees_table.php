@@ -9,6 +9,7 @@ class CreateFeesTable extends Migration
     /**
      * Run the migrations.
      *
+     * asd
      * @return void
      */
     public function up()
