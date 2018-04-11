@@ -155,6 +155,57 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 2]);
         });
 
+        // Auth gates for: Quotations
+        Gate::define('quotation_access', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('quotation_create', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('quotation_edit', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('quotation_view', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('quotation_delete', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+
+        // Auth gates for: Bookings
+        Gate::define('booking_access', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('booking_create', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('booking_edit', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('booking_view', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('booking_delete', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+
+        // Auth gates for: Fees
+        Gate::define('fee_access', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('fee_create', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('fee_edit', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('fee_view', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('fee_delete', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+
         // Auth gates for: Find room
         Gate::define('find_room_access', function ($user) {
             return in_array($user->role_id, [1, 2]);
