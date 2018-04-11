@@ -8,10 +8,10 @@ use App\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreInquirysRequest;
-use App\Http\Requests\Admin\UpdateInquirysRequest;
+use App\Http\Requests\Admin\StoreInquiriesRequest;
+use App\Http\Requests\Admin\UpdateInquiriesRequest;
 
-class InquirysController extends Controller
+class InquiriesController extends Controller
 {
     /**
      * Display a listing of Inquiry.
@@ -57,10 +57,10 @@ class InquirysController extends Controller
     /**
      * Store a newly created Inquiry in storage.
      *
-     * @param  \App\Http\Requests\StoreInquirysRequest $request
+     * @param  \App\Http\Requests\StoreInquiriesRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreInquirysRequest $request)
+    public function store(StoreInquiriesRequest $request)
     {
         if (!Gate::allows('inquiry_create')) {
             return abort(401);
@@ -94,11 +94,11 @@ class InquirysController extends Controller
     /**
      * Update Inquiry in storage.
      *
-     * @param  \App\Http\Requests\UpdateInquirysRequest $request
+     * @param  \App\Http\Requests\UpdateInquiriesRequest $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateInquirysRequest $request, $id)
+    public function update(UpdateInquiriesRequest $request, $id)
     {
         if (!Gate::allows('inquiry_edit')) {
             return abort(401);

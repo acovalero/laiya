@@ -74,7 +74,7 @@ return [
 		],
 	],
 	
-	'bookings' => [
+	'inquiries' => [
 		'title' => 'Inquiries',
 		'fields' => [
 			'customer' => 'Customer',
