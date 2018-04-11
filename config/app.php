@@ -12,6 +12,8 @@ return [
     | any other location as required by the application or its packages.
     */
 
+    //hello
+
     'name' => 'Laiya White Coves Booking System',
 
     /*
