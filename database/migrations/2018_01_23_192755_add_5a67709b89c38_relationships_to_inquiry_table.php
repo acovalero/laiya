@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Add5a676fa3e3cd8RelationshipsToBookingTable extends Migration
+class Add5a67709b89c38RelationshipsToInquiryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class Add5a676fa3e3cd8RelationshipsToBookingTable extends Migration
      */
     public function up()
     {
-        Schema::table('bookings', function(Blueprint $table) {
-            if (!Schema::hasColumn('bookings', 'customer_id')) {
+        Schema::table('inquiries', function(Blueprint $table) {
+            if (!Schema::hasColumn('inquiries', 'customer_id')) {
                 $table->integer('customer_id')->unsigned()->nullable();
                 $table->foreign('customer_id', '110461_5a676fa2321c7')->references('id')->on('customers')->onDelete('cascade');
                 }
-                if (!Schema::hasColumn('bookings', 'rooms_id')) {
+                if (!Schema::hasColumn('inquiries', 'rooms_id')) {
                 $table->integer('rooms_id')->unsigned()->nullable();
                 $table->foreign('rooms_id', '110461_5a676fa239ffd')->references('id')->on('rooms')->onDelete('cascade');
                 }
@@ -32,7 +32,7 @@ class Add5a676fa3e3cd8RelationshipsToBookingTable extends Migration
      */
     public function down()
     {
-        Schema::table('bookings', function(Blueprint $table) {
+        Schema::table('inquiries', function(Blueprint $table) {
             
         });
     }
