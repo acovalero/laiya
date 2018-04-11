@@ -16,6 +16,9 @@ class CreateRoomListsTable extends Migration
         Schema::create('room_lists', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            $table->integer('rooms_id')->nullable()->unsigned();
+
         });
     }
 

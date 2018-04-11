@@ -15,6 +15,8 @@ class CreateFeeListsTable extends Migration
     {
         Schema::create('fee_lists', function (Blueprint $table) {
             $table->increments('id');
+
+            $table->integer('fees_id')->nullable()->unsigned();
             $table->timestamps();
         });
     }

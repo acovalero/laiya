@@ -20,6 +20,8 @@ class Create1516728105RoomsTable extends Migration
                 $table->text('description')->nullable();
                 $table->string('status')->nullable();
                 $table->integer('room_types_id')->nullable()->unsigned();
+                $table->integer('room_statuses_id')->nullable()->unsigned();
+
 
                 
                 $table->timestamps();
