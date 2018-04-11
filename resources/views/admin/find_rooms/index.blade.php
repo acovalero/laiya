@@ -8,7 +8,7 @@
         <div class="row" style="margin-top: 5px;">
             <div class="col-xs-9">
                 <div class="col-xs-6 form-group">
-                    {!! Form::label('time_from', trans('quickadmin.bookings.fields.time-from').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('time_from', trans('quickadmin.inquiries.fields.time-from').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('time_from', old('time_from'), ['class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('time_from'))
@@ -18,7 +18,7 @@
                     @endif
                 </div>
                 <div class="col-xs-6 form-group">
-                    {!! Form::label('time_to', trans('quickadmin.bookings.fields.time-to').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('time_to', trans('quickadmin.inquiries.fields.time-to').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('time_to', old('time_to'), ['class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('time_to'))
@@ -60,9 +60,9 @@
                             <td field-key='floor'>{{ $room->floor }}</td>
                             <td field-key='description'>{!! $room->description !!}</td>
                             <td>
-                                @can('booking_create')
+                                @can('inquiry_create')
                                     <button class="btn btn-danger">
-                                        <a style="color: #ffffff;" href="{{ route('admin.bookings.create',
+                                        <a style="color: #ffffff;" href="{{ route('admin.inquiries.create',
                                         ['rooms_id' => $room->id,'time_from' => $time_from, 'time_to' => $time_to]) }}">
                                             {!!trans('quickadmin.find-room.book_room')!!}</a>
                                     </button>

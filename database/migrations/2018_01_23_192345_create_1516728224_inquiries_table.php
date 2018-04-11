@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Create1516728224BookingsTable extends Migration
+class Create1516728224InquiriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,8 @@ class Create1516728224BookingsTable extends Migration
      */
     public function up()
     {
-        if(! Schema::hasTable('bookings')) {
-            Schema::create('bookings', function (Blueprint $table) {
+        if(! Schema::hasTable('inquiries')) {
+            Schema::create('inquiries', function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('pax');
                 $table->datetime('time_from')->nullable();
@@ -37,6 +37,6 @@ class Create1516728224BookingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('inquiries');
     }
 }

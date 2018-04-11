@@ -78,11 +78,11 @@ class RoomTypesController extends Controller
         if (! Gate::allows('room_type_view')) {
             return abort(401);
         }
-        $bookings = \App\Booking::where('room_type_id', $id)->get();
+        $inquiries = \App\Inquiry::where('room_type_id', $id)->get();
 
         $room_types = Room_type::findOrFail($id);
 
-        return view('admin.room_types.show', compact('room_types', 'bookings'));    }
+        return view('admin.room_types.show', compact('room_types', 'iniquiries'));    }
 
     /**
      * Show the form for editing the specified resource.

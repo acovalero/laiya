@@ -18,12 +18,12 @@ class FindRoomsController extends Controller
         $time_to = $request->input('time_to');
 
         if ($request->isMethod('POST')) {
-            $rooms = Room::with('booking')->whereHas('booking', function ($q) use ($time_from, $time_to) {
+            $rooms = Room::with('inquiry')->whereHas('inquiry', function ($q) use ($time_from, $time_to) {
                 $q->where(function ($q2) use ($time_from, $time_to) {
                     $q2->where('time_from', '>=', $time_to)
                        ->orWhere('time_to', '<=', $time_from);
                 });
-            })->orWhereDoesntHave('booking')->get();
+            })->orWhereDoesntHave('inquiry')->get();
         } else {
             $rooms = null;
         }

@@ -18,7 +18,7 @@ class Migrations extends Migration
                 ->references('id')->on('room_types')->onDelete('cascade');
         });
 
-        // Schema::table('bookings',function(Blueprint $table){
+        // Schema::table('inquiries',function(Blueprint $table){
         //     $table->foreign('rooms_id')
         //         ->references('id')->on('rooms')->onDelete('cascade');
         // });

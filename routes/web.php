@@ -41,21 +41,21 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('rooms_restore/{id}', ['uses' => 'Admin\RoomsController@restore', 'as' => 'rooms.restore']);
     Route::delete('rooms_perma_del/{id}', ['uses' => 'Admin\RoomsController@perma_del', 'as' => 'rooms.perma_del']);
 
-    Route::resource('bookings', 'Admin\BookingsController', ['except' => 'bookings.create']);
-     Route::get('bookings/create/', ['as' => 'bookings.create', 'uses' => 'Admin\BookingsController@create']);
-    Route::post('bookings_mass_destroy', ['uses' => 'Admin\BookingsController@massDestroy', 'as' => 'bookings.mass_destroy']);
-    Route::post('bookings_restore/{id}', ['uses' => 'Admin\BookingsController@restore', 'as' => 'bookings.restore']);
-    Route::delete('bookings_perma_del/{id}', ['uses' => 'Admin\BookingsController@perma_del', 'as' => 'bookings.perma_del']);
+    Route::resource('inquiries', 'Admin\InquiriesController', ['except' => 'inquiries.create']);
+     Route::get('inquiries/create/', ['as' => 'inquiries.create', 'uses' => 'Admin\InquiriesController@create']);
+    Route::post('inquiries_mass_destroy', ['uses' => 'Admin\InquiriesController@massDestroy', 'as' => 'inquiries.mass_destroy']);
+    Route::post('inquiries_restore/{id}', ['uses' => 'Admin\InquiriesController@restore', 'as' => 'inquiries.restore']);
+    Route::delete('inquiries_perma_del/{id}', ['uses' => 'Admin\InquiriesController@perma_del', 'as' => 'inquiries.perma_del']);
     //Route::resource('/find_rooms', 'Admin\FindRoomsController', ['except' => 'create']);
     Route::get('/find_rooms', 'Admin\FindRoomsController@index')->name('find_rooms.index');
     Route::post('/find_rooms', 'Admin\FindRoomsController@index');
-    /*Route::get('/bookings/create/', [
+    /*Route::get('/inquiries/create/', [
         'as' => 'find_rooms.create',
-        'uses' => 'Admin\BookingsController@create'
+        'uses' => 'Admin\InquiriesController@create'
     ]);*/
 
     Route::resource('room_types', 'Admin\RoomTypesController');
-    //Route::get('bookings/create/', ['as' => 'bookings.create', 'uses' => 'Admin\BookingsController@create']);
+    //Route::get('inquiries/create/', ['as' => 'inquiries.create', 'uses' => 'Admin\InquiriesController@create']);
    Route::post('room_types_mass_destroy', ['uses' => 'Admin\RoomTypesController@massDestroy', 'as' => 'room_types.mass_destroy']);
    Route::post('room_types_restore/{id}', ['uses' => 'Admin\RoomTypesController@restore', 'as' => 'room_types.restore']);
    Route::delete('room_types_perma_del/{id}', ['uses' => 'Admin\RoomTypesController@perma_del', 'as' => 'room_types.perma_del']);

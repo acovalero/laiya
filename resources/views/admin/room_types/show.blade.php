@@ -37,22 +37,22 @@
             </div><!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
 
-                <li role="presentation" class="active"><a href="#bookings" aria-controls="bookings" role="tab"
+                <li role="presentation" class="active"><a href="#inquiries" aria-controls="inquiries" role="tab"
                                                           data-toggle="tab">Room Types</a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
 
-                <div role="tabpanel" class="tab-pane active" id="bookings">
-                    <table class="table table-bordered table-striped {{ count($bookings) > 0 ? 'datatable' : '' }}">
+                <div role="tabpanel" class="tab-pane active" id="inquiries">
+                    <table class="table table-bordered table-striped {{ count($inquiries) > 0 ? 'datatable' : '' }}">
                         <thead>
                         <tr>
-                            <th>@lang('quickadmin.bookings.fields.customer')</th>
-                            <th>@lang('quickadmin.bookings.fields.room')</th>
-                            <th>@lang('quickadmin.bookings.fields.time-from')</th>
-                            <th>@lang('quickadmin.bookings.fields.time-to')</th>
-                            <th>@lang('quickadmin.bookings.fields.additional-information')</th>
+                            <th>@lang('quickadmin.inquiries.fields.customer')</th>
+                            <th>@lang('quickadmin.inquiries.fields.room')</th>
+                            <th>@lang('quickadmin.inquiries.fields.time-from')</th>
+                            <th>@lang('quickadmin.inquiries.fields.time-to')</th>
+                            <th>@lang('quickadmin.inquiries.fields.additional-information')</th>
                             @if( request('show_deleted') == 1 )
                                 <th>&nbsp;</th>
                             @else
@@ -62,51 +62,51 @@
                         </thead>
 
                         <tbody>
-                        @if (count($bookings) > 0)
-                            @foreach ($bookings as $booking)
-                                <tr data-entry-id="{{ $booking->id }}">
-                                    <td field-key='customer'>{{ $booking->customer->first_name or '' }}</td>
-                                    <td field-key='room'>{{ $booking->room->room_number or '' }}</td>
-                                    <td field-key='time_from'>{{ $booking->time_from }}</td>
-                                    <td field-key='time_to'>{{ $booking->time_to }}</td>
-                                    <td field-key='additional_information'>{!! $booking->additional_information !!}</td>
+                        @if (count($inquiries) > 0)
+                            @foreach ($inquiries as $inquiry)
+                                <tr data-entry-id="{{ $inquiry->id }}">
+                                    <td field-key='customer'>{{ $inquiry->customer->first_name or '' }}</td>
+                                    <td field-key='room'>{{ $inquiry->room->room_number or '' }}</td>
+                                    <td field-key='time_from'>{{ $inquiry->time_from }}</td>
+                                    <td field-key='time_to'>{{ $inquiry->time_to }}</td>
+                                    <td field-key='additional_information'>{!! $inquiry->additional_information !!}</td>
                                     @if( request('show_deleted') == 1 )
                                         <td>
-                                            @can('booking_delete')
+                                            @can('inquiry_delete')
                                                 {!! Form::open(array(
                 'style' => 'display: inline-block;',
                 'method' => 'POST',
                 'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                'route' => ['admin.bookings.restore', $booking->id])) !!}
+                'route' => ['admin.inquiries.restore', $inquiry->id])) !!}
                                                 {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
                                                 {!! Form::close() !!}
                                             @endcan
-                                            @can('booking_delete')
+                                            @can('inquiry_delete')
                                                 {!! Form::open(array(
                 'style' => 'display: inline-block;',
                 'method' => 'DELETE',
                 'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                'route' => ['admin.bookings.perma_del', $booking->id])) !!}
+                'route' => ['admin.inquiries.perma_del', $inquiry->id])) !!}
                                                 {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
                                                 {!! Form::close() !!}
                                             @endcan
                                         </td>
                                     @else
                                         <td>
-                                            @can('booking_view')
-                                                <a href="{{ route('admin.bookings.show',[$booking->id]) }}"
+                                            @can('inquiry_view')
+                                                <a href="{{ route('admin.inquiries.show',[$inquiry->id]) }}"
                                                    class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
                                             @endcan
-                                            @can('booking_edit')
-                                                <a href="{{ route('admin.bookings.edit',[$booking->id]) }}"
+                                            @can('inquiry_edit')
+                                                <a href="{{ route('admin.inquiries.edit',[$inquiry->id]) }}"
                                                    class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                             @endcan
-                                            @can('booking_delete')
+                                            @can('inquiry_delete')
                                                 {!! Form::open(array(
                                                                                         'style' => 'display: inline-block;',
                                                                                         'method' => 'DELETE',
                                                                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                                                                        'route' => ['admin.bookings.destroy', $booking->id])) !!}
+                                                                                        'route' => ['admin.inquiries.destroy', $inquiry->id])) !!}
                                                 {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                                 {!! Form::close() !!}
                                             @endcan

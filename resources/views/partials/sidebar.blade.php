@@ -124,11 +124,11 @@
                 </li>
                 @endcan
 
-                @can('booking_access')
-                <li class="{{ $request->segment(2) == 'bookings' ? 'active' : '' }}">
-                    <a href="{{ route('admin.bookings.index') }}">
+                @can('inquiry_access')
+                <li class="{{ $request->segment(2) == 'inquiries' ? 'active' : '' }}">
+                    <a href="{{ route('admin.inquiries.index') }}">
                         <i class="fa fa-bell"></i>
-                        <span class="title">@lang('quickadmin.bookings.title')</span>
+                        <span class="title">@lang('quickadmin.inquiries.title')</span>
                     </a>
                 </li>
                 @endcan

@@ -38,9 +38,9 @@ class Room extends Model
         $this->attributes['room_types_id'] = $input ? $input : null;
     }
 
-    public function booking()
+    public function inquiry()
     {
-        return $this->HasOne(Booking::class, 'rooms_id')->withTrashed();
+        return $this->HasOne(Inquiry::class, 'rooms_id')->withTrashed();
     }
 
 }
