@@ -86,6 +86,45 @@ return [
 			'room_type' => 'Room Type',
 		],
 	],
+
+	'quotations' => [
+		'title' => 'Quotations',
+		'fields' => [
+			'customer' => 'Customer',
+			'room' => 'Room',
+			'time-from' => 'Time from',
+			'time-to' => 'Time to',
+			'additional-information' => 'Additional information',
+			'pax' => 'Pax',
+			'room_type' => 'Room Type',
+		],
+	],
+
+	'bookings' => [
+		'title' => 'Bookings',
+		'fields' => [
+			'customer' => 'Customer',
+			'room' => 'Room',
+			'time-from' => 'Time from',
+			'time-to' => 'Time to',
+			'additional-information' => 'Additional information',
+			'pax' => 'Pax',
+			'room_type' => 'Room Type',
+		],
+	],
+
+	'fees' => [
+		'title' => 'Fees',
+		'fields' => [
+			'customer' => 'Customer',
+			'room' => 'Room',
+			'time-from' => 'Time from',
+			'time-to' => 'Time to',
+			'additional-information' => 'Additional information',
+			'pax' => 'Pax',
+			'room_type' => 'Room Type',
+		],
+	],
 	
 	'find-room' => [
 		'title' => 'Find room',

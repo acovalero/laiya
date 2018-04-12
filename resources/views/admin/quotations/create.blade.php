@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.inquiries.title')</h3>
-    {!! Form::open(['method' => 'POST', 'route' => ['admin.inquiries.store']]) !!}
+    <h3 class="page-title">@lang('quickadmin.quotations.title')</h3>
+    {!! Form::open(['method' => 'POST', 'route' => ['admin.quotations.store']]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -11,7 +11,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('customer_id', trans('quickadmin.inquiries.fields.customer').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('customer_id', trans('quickadmin.quotations.fields.customer').'', ['class' => 'control-label']) !!}
                     {!! Form::select('customer_id', $customers, old('customer_id'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('customer_id'))
@@ -25,7 +25,7 @@
             <!-- Room Selection -->
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('rooms_id', trans('quickadmin.inquiries.fields.room').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}
                     {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('rooms_id'))
@@ -39,7 +39,7 @@
             <!-- Pax  -->
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('pax', trans('quickadmin.inquiries.fields.pax').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('pax', trans('quickadmin.quotations.fields.pax').'*', ['class' => 'control-label']) !!}
                     {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('pax'))
@@ -53,7 +53,7 @@
             <!-- Check in -->
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('time_from', trans('quickadmin.inquiries.fields.time-from').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('time_from', trans('quickadmin.quotations.fields.time-from').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('time_from', old('time_from'), ['id' => 'checkin', 'class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('time_from'))
@@ -65,7 +65,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('time_to', trans('quickadmin.inquiries.fields.time-to').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('time_to', trans('quickadmin.quotations.fields.time-to').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('time_to', old('time_to'), ['id' => 'checkout','class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('time_to'))
@@ -77,7 +77,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('additional_information', trans('quickadmin.inquiries.fields.additional-information').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('additional_information', trans('quickadmin.quotations.fields.additional-information').'*', ['class' => 'control-label']) !!}
                     {!! Form::textarea('additional_information', old('additional_information'), ['class' => 'form-control ', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('additional_information'))

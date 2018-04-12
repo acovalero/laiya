@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.inquiries.title')</h3>
+    <h3 class="page-title">@lang('quickadmin.fees.title')</h3>
     
-    {!! Form::model($inquiry, ['method' => 'PUT', 'route' => ['admin.inquiries.update', $inquiry->id]]) !!}
+    {!! Form::model($fee, ['method' => 'PUT', 'route' => ['admin.fees.update', $fee->id]]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -13,7 +13,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('customer_id', trans('quickadmin.inquiries.fields.customer').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('customer_id', trans('quickadmin.fees.fields.customer').'', ['class' => 'control-label']) !!}
                     {!! Form::select('customer_id', $customers, old('customer_id'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('customer_id'))
@@ -25,7 +25,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('rooms_id', trans('quickadmin.inquiries.fields.room').'', ['class' => 'control-label']) !!}
+                    {!! Form::label('rooms_id', trans('quickadmin.fees.fields.room').'', ['class' => 'control-label']) !!}
                     {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('rooms_id'))
@@ -37,7 +37,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('time_from', trans('quickadmin.inquiries.fields.time-from').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('time_from', trans('quickadmin.fees.fields.time-from').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('time_from', old('time_from'), ['class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('time_from'))
@@ -49,7 +49,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('time_to', trans('quickadmin.inquiries.fields.time-to').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('time_to', trans('quickadmin.fees.fields.time-to').'*', ['class' => 'control-label']) !!}
                     {!! Form::text('time_to', old('time_to'), ['class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('time_to'))
@@ -61,7 +61,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('additional_information', trans('quickadmin.inquiries.fields.additional-information').'*', ['class' => 'control-label']) !!}
+                    {!! Form::label('additional_information', trans('quickadmin.fees.fields.additional-information').'*', ['class' => 'control-label']) !!}
                     {!! Form::textarea('additional_information', old('additional_information'), ['class' => 'form-control ', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('additional_information'))

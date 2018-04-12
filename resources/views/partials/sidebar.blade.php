@@ -7,6 +7,7 @@
 
              <!-- ADMIN -->
             @if(Auth::user()->role_id == 1)
+            {{-- DASHBOARD --}}
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">
                     <i class="fa fa-wrench"></i>
@@ -14,7 +15,7 @@
                 </a>
             </li>
 
-            
+            {{-- USER MANAGEMENT --}}
             @can('user_management_access')
             <li class="treeview">
                 <a href="#">
@@ -50,6 +51,7 @@
             </li>
             @endcan
 
+            {{-- ROOM MANAGEMENT --}}
             @can('user_management_access')
             <li class="treeview">
                 <a href="#">
@@ -81,6 +83,7 @@
             </li>
             @endcan
 
+            {{-- COUNTRY --}}
             <!-- @can('country_access')
             <li class="{{ $request->segment(2) == 'countries' ? 'active' : '' }}">
                 <a href="{{ route('admin.countries.index') }}">
@@ -91,7 +94,7 @@
             @endcan -->
             
            
-            
+            {{-- CUSTOMERS --}}
             @can('customer_access')
             <li class="{{ $request->segment(2) == 'customers' ? 'active' : '' }}">
                 <a href="{{ route('admin.customers.index') }}">
@@ -101,9 +104,17 @@
             </li>
             @endcan
             
+            {{-- FEES --}}
+            @can('fee_access')
+            <li class="{{ $request->segment(2) == 'fees' ? 'active' : '' }}">
+                <a href="{{ route('admin.fees.index') }}">
+                    <i class="fa fa-plus-circle"></i>
+                    <span class="title">@lang('quickadmin.fees.title')</span>
+                </a>
+            </li>
+            @endcan
             
-            
-            
+            {{-- FIND ROOM --}}
             @can('find_room_access')
             <li class="{{ $request->segment(2) == 'find_rooms' ? 'active' : '' }}">
                 <a href="{{ route('admin.find_rooms.index') }}">
@@ -113,25 +124,76 @@
             </li>
             @endcan
 
+
+
+
+
+
+
             <!-- MARKETING -->
             @elseif(Auth::user()->role_id == 2)
-                @can('customer_access')
-                <li class="{{ $request->segment(2) == 'customers' ? 'active' : '' }}">
-                    <a href="{{ route('admin.customers.index') }}">
-                        <i class="fa fa-users"></i>
-                        <span class="title">@lang('quickadmin.customers.title')</span>
-                    </a>
-                </li>
-                @endcan
+            {{-- DASHBOARD --}}
+            <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
+                <a href="{{ url('/') }}">
+                    <i class="fa fa-wrench"></i>
+                    <span class="title">@lang('quickadmin.qa_dashboard')</span>
+                </a>
+            </li>
 
-                @can('inquiry_access')
-                <li class="{{ $request->segment(2) == 'inquiries' ? 'active' : '' }}">
-                    <a href="{{ route('admin.inquiries.index') }}">
-                        <i class="fa fa-bell"></i>
-                        <span class="title">@lang('quickadmin.inquiries.title')</span>
-                    </a>
-                </li>
-                @endcan
+            {{-- CUSTOMERS --}}
+            @can('customer_access')
+            <li class="{{ $request->segment(2) == 'customers' ? 'active' : '' }}">
+                <a href="{{ route('admin.customers.index') }}">
+                    <i class="fa fa-users"></i>
+                    <span class="title">@lang('quickadmin.customers.title')</span>
+                </a>
+            </li>
+            @endcan
+
+            {{-- INQUIRIES --}}
+            @can('inquiry_access')
+            <li class="{{ $request->segment(2) == 'inquiries' ? 'active' : '' }}">
+                <a href="{{ route('admin.inquiries.index') }}">
+                    <i class="fa fa-folder-open"></i>
+                    <span class="title">@lang('quickadmin.inquiries.title')</span>
+                </a>
+            </li>
+            @endcan
+
+            {{-- QUOTATIONS --}}
+            @can('quotation_access')
+            <li class="{{ $request->segment(2) == 'quotations' ? 'active' : '' }}">
+                <a href="{{ route('admin.quotations.index') }}">
+                    <i class="fa fa-barcode"></i>
+                    <span class="title">@lang('quickadmin.quotations.title')</span>
+                </a>
+            </li>
+            @endcan
+
+            {{-- BOOKINGS --}}
+            @can('booking_access')
+            <li class="{{ $request->segment(2) == 'bookings' ? 'active' : '' }}">
+                <a href="{{ route('admin.bookings.index') }}">
+                    <i class="fa fa-book"></i>
+                    <span class="title">@lang('quickadmin.bookings.title')</span>
+                </a>
+            </li>
+            @endcan
+
+            {{-- FIND ROOM --}}
+            @can('find_room_access')
+            <li class="{{ $request->segment(2) == 'find_rooms' ? 'active' : '' }}">
+                <a href="{{ route('admin.find_rooms.index') }}">
+                    <i class="fa fa-arrows"></i>
+                    <span class="title">@lang('quickadmin.find-room.title')</span>
+                </a>
+            </li>
+            @endcan
+
+
+
+
+
             @endif
 
             

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.inquiries.title')</h3>
+    <h3 class="page-title">@lang('quickadmin.fees.title')</h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -13,28 +13,28 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>@lang('quickadmin.inquiries.fields.customer')</th>
-                            <td field-key='customer'>{{ $inquiry->customer->first_name or '' }}</td>
+                            <th>@lang('quickadmin.fees.fields.customer')</th>
+                            <td field-key='customer'>{{ $fee->customer->first_name or '' }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.inquiries.fields.room')</th>
-                            <td field-key='room'>{{ $inquiry->room->room_number or '' }}</td>
+                            <th>@lang('quickadmin.fees.fields.room')</th>
+                            <td field-key='room'>{{ $fee->room->room_number or '' }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.inquiries.fields.pax')</th>
-                            <td field-key='room'>{{ $inquiry->pax}}</td>
+                            <th>@lang('quickadmin.fees.fields.pax')</th>
+                            <td field-key='room'>{{ $fee->pax}}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.inquiries.fields.time-from')</th>
-                            <td field-key='time_from'>{{ $inquiry->time_from }}</td>
+                            <th>@lang('quickadmin.fees.fields.time-from')</th>
+                            <td field-key='time_from'>{{ $fee->time_from }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.inquiries.fields.time-to')</th>
-                            <td field-key='time_to'>{{ $inquiry->time_to }}</td>
+                            <th>@lang('quickadmin.fees.fields.time-to')</th>
+                            <td field-key='time_to'>{{ $fee->time_to }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.inquiries.fields.additional-information')</th>
-                            <td field-key='additional_information'>{!! $inquiry->additional_information !!}</td>
+                            <th>@lang('quickadmin.fees.fields.additional-information')</th>
+                            <td field-key='additional_information'>{!! $fee->additional_information !!}</td>
                         </tr>
                     </table>
                 </div>
@@ -42,7 +42,7 @@
 
             <p>&nbsp;</p>
 
-            <a href="{{ route('admin.inquiries.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
+            <a href="{{ route('admin.fees.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
         </div>
     </div>
 @stop
