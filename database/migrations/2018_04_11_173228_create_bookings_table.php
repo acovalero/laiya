@@ -18,6 +18,10 @@ class CreateBookingsTable extends Migration
 
             $table->integer('inquiries_id')->nullable()->unsigned();
             $table->timestamps();
+
+            $table->softDeletes();
+
+            $table->index(['deleted_at']);
         });
     }
 

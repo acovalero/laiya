@@ -22,6 +22,9 @@ class CreateQuotationsTable extends Migration
             $table->integer('room_lists_id')->nullable()->unsigned();
 
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->index(['deleted_at']);
         });
     }
 
