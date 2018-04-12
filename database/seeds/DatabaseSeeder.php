@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeed::class);
         $this->call(RoomTypeSeed::class);
         $this->call(RoomSeed::class);
+        $this->call(CustomerSeed::class);
 
     }
 }
