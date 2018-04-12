@@ -18,6 +18,7 @@ class CreateRoomListsTable extends Migration
             $table->timestamps();
 
             $table->integer('rooms_id')->nullable()->unsigned();
+            $table->softDeletes();
 
         });
     }

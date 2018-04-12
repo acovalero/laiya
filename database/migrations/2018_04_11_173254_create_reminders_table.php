@@ -18,6 +18,7 @@ class CreateRemindersTable extends Migration
 
             $table->integer('inquiries_id')->nullable()->unsigned();
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

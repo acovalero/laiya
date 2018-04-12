@@ -110,19 +110,17 @@ return [
 			'additional-information' => 'Additional information',
 			'pax' => 'Pax',
 			'room_type' => 'Room Type',
+			
 		],
 	],
 
 	'fees' => [
 		'title' => 'Fees',
 		'fields' => [
-			'customer' => 'Customer',
-			'room' => 'Room',
-			'time-from' => 'Time from',
-			'time-to' => 'Time to',
+			'name' => 'Name',
+			'price' => 'Price',
 			'additional-information' => 'Additional information',
-			'pax' => 'Pax',
-			'room_type' => 'Room Type',
+
 		],
 	],
 	

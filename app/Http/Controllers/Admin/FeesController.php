@@ -81,11 +81,11 @@ class FeesController extends Controller
             return abort(401);
         }
 
-        $fee_types = \App\Fee_type::get()->pluck('fee_type', 'id','price')->prepend(trans('quickadmin.qa_please_select'), '');
+        // $fee_types = \App\Fee_type::get()->pluck('fee_type', 'id','price')->prepend(trans('quickadmin.qa_please_select'), '');
 
         $fee = Fee::findOrFail($id);
 
-        return view('admin.fees.edit', compact('fee', 'fee_types'));
+        return view('admin.fees.edit', compact('fee'));
     }
 
     /**
@@ -120,11 +120,11 @@ class FeesController extends Controller
         if (! Gate::allows('fee_view')) {
             return abort(401);
         }
-        $inquiries = \App\Inquiry::where('fees_id', $id)->get();
+        // $inquiries = \App\Inquiry::where('fees_id', $id)->get();
 
         $fee = Fee::findOrFail($id);
 
-        return view('admin.fees.show', compact('fee', 'inquiries'));
+        return view('admin.fees.show', compact('fee'));
     }
 
 

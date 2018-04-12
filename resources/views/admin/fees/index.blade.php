@@ -33,12 +33,8 @@
                             @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
                         @endcan
 
-                        <th>@lang('quickadmin.fees.fields.customer')</th>
-                        <th>@lang('quickadmin.fees.fields.room')</th>
-                        <th>@lang('quickadmin.fees.fields.pax')</th>
-                        <th>@lang('quickadmin.fees.fields.time-from')</th>
-                        <th>@lang('quickadmin.fees.fields.time-to')</th>
-                        <th>@lang('quickadmin.fees.fields.additional-information')</th>
+                        <th>@lang('quickadmin.fees.fields.name')</th>
+                        <th>@lang('quickadmin.fees.fields.price')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -55,12 +51,8 @@
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
 
-                                <td field-key='customer'>{{ $fee->customer->full_name or '' }}</td>
-                                <td field-key='room'>{{ $fee->room->room_number or '' }}</td>
-                                <td field-key='pax'>{{ $fee->pax}}</td>
-                                <td field-key='time_from'>{{ $fee->time_from }}</td>
-                                <td field-key='time_to'>{{ $fee->time_to }}</td>
-                                <td field-key='additional_information'>{!! $fee->additional_information !!}</td>
+                                <td field-key='name'>{{ $fee->name}}</td>
+                                <td field-key='price'>{{ $fee->price}}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('fee_delete')

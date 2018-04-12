@@ -13,28 +13,12 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>@lang('quickadmin.fees.fields.customer')</th>
-                            <td field-key='customer'>{{ $fee->customer->first_name or '' }}</td>
+                            <th>@lang('quickadmin.fees.fields.name')</th>
+                            <td field-key='name'>{{ $fee->name}}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.fees.fields.room')</th>
-                            <td field-key='room'>{{ $fee->room->room_number or '' }}</td>
-                        </tr>
-                        <tr>
-                            <th>@lang('quickadmin.fees.fields.pax')</th>
-                            <td field-key='room'>{{ $fee->pax}}</td>
-                        </tr>
-                        <tr>
-                            <th>@lang('quickadmin.fees.fields.time-from')</th>
-                            <td field-key='time_from'>{{ $fee->time_from }}</td>
-                        </tr>
-                        <tr>
-                            <th>@lang('quickadmin.fees.fields.time-to')</th>
-                            <td field-key='time_to'>{{ $fee->time_to }}</td>
-                        </tr>
-                        <tr>
-                            <th>@lang('quickadmin.fees.fields.additional-information')</th>
-                            <td field-key='additional_information'>{!! $fee->additional_information !!}</td>
+                            <th>@lang('quickadmin.fees.fields.price')</th>
+                            <td field-key='price'>{{ $fee->price}}</td>
                         </tr>
                     </table>
                 </div>

@@ -17,6 +17,8 @@ class CreateQuotationListsTable extends Migration
             $table->increments('id');
             $table->integer('quotations_id')->nullable()->unsigned();
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

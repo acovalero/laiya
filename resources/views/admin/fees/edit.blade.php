@@ -13,60 +13,25 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('customer_id', trans('quickadmin.fees.fields.customer').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('customer_id', $customers, old('customer_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::label('name', trans('quickadmin.fees.fields.name').'*', ['class' => 'control-label']) !!}
+                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('customer_id'))
+                    @if($errors->has('name'))
                         <p class="help-block">
-                            {{ $errors->first('customer_id') }}
+                            {{ $errors->first('name') }}
                         </p>
                     @endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('rooms_id', trans('quickadmin.fees.fields.room').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::label('price', trans('quickadmin.fees.fields.price').'*', ['class' => 'control-label']) !!}
+                    {!! Form::number('price', old('price'), ['class' => 'form-control', 'required' => '']) !!}
+
                     <p class="help-block"></p>
-                    @if($errors->has('rooms_id'))
+                    @if($errors->has('price'))
                         <p class="help-block">
-                            {{ $errors->first('rooms_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('time_from', trans('quickadmin.fees.fields.time-from').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('time_from', old('time_from'), ['class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('time_from'))
-                        <p class="help-block">
-                            {{ $errors->first('time_from') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('time_to', trans('quickadmin.fees.fields.time-to').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('time_to', old('time_to'), ['class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('time_to'))
-                        <p class="help-block">
-                            {{ $errors->first('time_to') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('additional_information', trans('quickadmin.fees.fields.additional-information').'*', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('additional_information', old('additional_information'), ['class' => 'form-control ', 'placeholder' => '', 'required' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('additional_information'))
-                        <p class="help-block">
-                            {{ $errors->first('additional_information') }}
+                            {{ $errors->first('price') }}
                         </p>
                     @endif
                 </div>

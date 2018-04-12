@@ -17,6 +17,8 @@ class CreateRoomStatusesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('status');
+
+            $table->softDeletes();
         });
     }
 

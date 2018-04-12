@@ -19,6 +19,8 @@ class CreateFeesTable extends Migration
             $table->string('name');
             $table->double('price');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 
