@@ -52,45 +52,45 @@
 
 
 
+<script type="text/javascript">
+    $(function() {
+       $('input[name="datefilter"]').datepicker({
+           autoUpdateInput: false,
+           locale: {
+               cancelLabel: 'Clear'
+           }
+       });
+       
+       $('input[name="datefilter"]').on('apply.datepicker', function(ev, picker) {
+           $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+       });
+       
+       $('input[name="datefilter"]').on('cancel.datepicker', function(ev, picker) {
+           $(this).val('');
+       });  
+   });
+</script>
+
+<script type="text/javascript">
+   $('.daterange').datepicker({
+           autoUpdateInput: false,
+           locale: {
+               cancelLabel: 'Clear'
+           }
+       });
+       
+       $('.daterange').on('apply.datepicker', function(ev, picker) {
+           $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+       });
+       
+       $('.daterange').on('cancel.datepicker', function(ev, picker) {
+           $(this).val('');
+       });
+</script>
 
 
-    <script type="text/javascript">
-         $(function() {
-            $('input[name="datefilter"]').daterangepicker({
-                autoUpdateInput: false,
-                locale: {
-                    cancelLabel: 'Clear'
-                }
-            });
-            
-            $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
-                $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-            });
-            
-            $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
-                $(this).val('');
-            });  
-        });
-    </script>
 
-    <script type="text/javascript">
-	    $('.daterange').daterangepicker({
-                autoUpdateInput: false,
-                locale: {
-                    cancelLabel: 'Clear'
-                }
-            });
-            
-            $('.daterange').on('apply.daterangepicker', function(ev, picker) {
-                $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-            });
-            
-            $('.daterange').on('cancel.daterangepicker', function(ev, picker) {
-                $(this).val('');
-            });
-    </script>
 
- 
 
 
 

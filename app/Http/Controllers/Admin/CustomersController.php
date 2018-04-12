@@ -122,11 +122,11 @@ class CustomersController extends Controller
             return abort(401);
         }
         
-        $countries = \App\Country::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');$Inquiries = \App\Inquiry::where('customer_id', $id)->get();
+        $countries = \App\Country::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');$inquiries = \App\Inquiry::where('customer_id', $id)->get();
 
         $customer = Customer::findOrFail($id);
 
-        return view('admin.customers.show', compact('customer', 'Inquiries'));
+        return view('admin.customers.show', compact('customer', 'inquiries'));
     }
 
 

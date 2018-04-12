@@ -26,7 +26,7 @@
             </div>
 
             <!-- Room Selection -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('rooms_id', trans('quickadmin.inquiries.fields.room').'', ['class' => 'control-label']) !!}
                     {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2']) !!}
@@ -37,7 +37,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Pax  -->
             <div class="row">
@@ -66,10 +66,11 @@
                     @endif
                 </div>
             </div>
+            {{-- Check out --}}
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('time_to', trans('quickadmin.inquiries.fields.time-to').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('time_to', old('time_to'), ['id' => 'checkout','class' => 'daterange', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('time_to', old('time_to'), ['id' => 'checkout', 'class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('time_to'))
                         <p class="help-block">
@@ -79,7 +80,7 @@
                 </div>
             </div>
 
-            <input type="text" name="datefilter" value="" />
+          
             
             <div class="row">
                 <div class="col-xs-12 form-group">
@@ -93,12 +94,12 @@
                     @endif
                 </div>
             </div>
-
-        </div>
+            {!! Form::submit(trans('quickadmin.qa_save'), ['id' => 'check_me', 'class' => 'btn btn-danger']) !!}
+            {!! Form::close() !!}
+        </div>  
     </div>
 
-    {!! Form::submit(trans('quickadmin.qa_save'), ['id' => 'check_me', 'class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
+    
 @stop
 
 @section('javascript')
@@ -114,10 +115,10 @@
 
         $(document).ready(function(){
             $('.datetimepicker').datetimepicker({
-            format: "YYYY-MM-DD HH:mm"
+            format: "YYYY-MM-DD h:mm"
 
-            $('.daterange').datetimepicker({
-            format: "YYYY-MM-DD"
+            // $('.daterange').datetimepicker({
+            // format: "YYYY-MM-DD"
         });
 
         $("#check_me").on('click', function(){
@@ -126,16 +127,16 @@
             // var room = $("#room").val();
             // var type = $("#change_room").val();
 
-            // if(checkin > checkout){
-            //     alert("Im sorry , please choose the present or future date for reservation");
-            //     return false;
-            // }
-            // var d = new Date();
-            // var date = d.getFullYear() + "-" +0+parseInt( d.getUTCMonth() + 1 )   + "-" + d.getDate();
-            // if(checkin < date){
-            //     alert("Im sorry , please choose the present or future date for reservation");
-            //     return false;
-            // }
+            if(checkin > checkout){
+                alert("Im sorry , please choose the present or future date for reservation");
+                return false;
+            }
+            var d = new Date();
+            var date = d.getFullYear() + "-" +0+parseInt( d.getUTCMonth() + 1 )   + "-" + d.getDate();
+            if(checkin < date){
+                alert("Im sorry , please choose the present or future date for reservation");
+                return false;
+            }
         });
 
         });

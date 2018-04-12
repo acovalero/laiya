@@ -32,10 +32,10 @@
                             <th>@lang('quickadmin.customers.fields.email')</th>
                             <td field-key='email'>{{ $customer->email }}</td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <th>@lang('quickadmin.customers.fields.country')</th>
                             <td field-key='country'>{{ $customer->country->title or '' }}</td>
-                        </tr>
+                        </tr> --}}
                     </table>
                 </div>
             </div><!-- Nav tabs -->
