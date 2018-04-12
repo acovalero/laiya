@@ -84,6 +84,7 @@ return [
 			'additional-information' => 'Additional information',
 			'pax' => 'Pax',
 			'room_type' => 'Room Type',
+			'created_at' => 'Inquired Date'
 		],
 	],
 

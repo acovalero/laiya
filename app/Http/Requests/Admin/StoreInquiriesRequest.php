@@ -24,10 +24,10 @@ class StoreInquiriesRequest extends FormRequest
     {
         return [
             'customer_id' => 'required',
-            'rooms_id' => 'required',
+            // 'rooms_id' => 'required',
             'time_from' => 'required|date_format:'.config('app.date_format').' H:i',
             'time_to' => 'required|date_format:'.config('app.date_format'). ' H:i',
-            'additional_information' => 'required',
+            // 'additional_information' => 'required',
         ];
     }
 }

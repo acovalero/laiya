@@ -18,7 +18,7 @@ class Create1516728224InquiriesTable extends Migration
                 $table->integer('pax');
                 $table->datetime('time_from')->nullable();
                 $table->datetime('time_to')->nullable();
-                $table->text('additional_information')->nullable();
+                // $table->text('additional_information')->nullable();
                 // $table->integer('rooms_id')->nullable()->unsigned();
                 
                 

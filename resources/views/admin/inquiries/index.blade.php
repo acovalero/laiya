@@ -38,7 +38,7 @@
                         <th>@lang('quickadmin.inquiries.fields.pax')</th>
                         <th>@lang('quickadmin.inquiries.fields.time-from')</th>
                         <th>@lang('quickadmin.inquiries.fields.time-to')</th>
-                        <th>@lang('quickadmin.inquiries.fields.additional-information')</th>
+                        <th>@lang('quickadmin.inquiries.fields.created_at')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -60,7 +60,8 @@
                                 <td field-key='pax'>{{ $inquiry->pax}}</td>
                                 <td field-key='time_from'>{{ $inquiry->time_from }}</td>
                                 <td field-key='time_to'>{{ $inquiry->time_to }}</td>
-                                <td field-key='additional_information'>{!! $inquiry->additional_information !!}</td>
+                                <td field-key='created_at'>{{ $inquiry->created_at }}</td>
+                                {{-- <td field-key='additional_information'>{!! $inquiry->additional_information !!}</td> --}}
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('inquiry_delete')
@@ -73,7 +74,7 @@
                                     {!! Form::close() !!}
                                 @endcan
                                     @can('inquiry_delete')
-                                                                        {!! Form::open(array(
+                                        {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
@@ -91,7 +92,7 @@
                                     <a href="{{ route('admin.inquiries.edit',[$inquiry->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                     @endcan
                                     @can('inquiry_delete')
-{!! Form::open(array(
+                                    {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
