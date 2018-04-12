@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+
+
+
 @section('content')
     <h3 class="page-title">@lang('quickadmin.inquiries.title')</h3>
     {!! Form::open(['method' => 'POST', 'route' => ['admin.inquiries.store']]) !!}
@@ -66,7 +69,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('time_to', trans('quickadmin.inquiries.fields.time-to').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('time_to', old('time_to'), ['id' => 'checkout','class' => 'form-control datetimepicker', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('time_to', old('time_to'), ['id' => 'checkout','class' => 'daterange', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('time_to'))
                         <p class="help-block">
@@ -75,6 +78,9 @@
                     @endif
                 </div>
             </div>
+
+            <input type="text" name="datefilter" value="" />
+            
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('additional_information', trans('quickadmin.inquiries.fields.additional-information').'*', ['class' => 'control-label']) !!}
@@ -97,15 +103,21 @@
 
 @section('javascript')
     @parent
+    
     <script src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    
+   
     <script>
 
         $(document).ready(function(){
             $('.datetimepicker').datetimepicker({
             format: "YYYY-MM-DD HH:mm"
+
+            $('.daterange').datetimepicker({
+            format: "YYYY-MM-DD"
         });
 
         $("#check_me").on('click', function(){
@@ -114,16 +126,16 @@
             // var room = $("#room").val();
             // var type = $("#change_room").val();
 
-            if(checkin > checkout){
-                alert("Im sorry , please choose the present or future date for reservation");
-                return false;
-            }
-            var d = new Date();
-            var date = d.getFullYear() + "-" +0+parseInt( d.getUTCMonth() + 1 )   + "-" + d.getDate();
-            if(checkin < date){
-                alert("Im sorry , please choose the present or future date for reservation");
-                return false;
-            }
+            // if(checkin > checkout){
+            //     alert("Im sorry , please choose the present or future date for reservation");
+            //     return false;
+            // }
+            // var d = new Date();
+            // var date = d.getFullYear() + "-" +0+parseInt( d.getUTCMonth() + 1 )   + "-" + d.getDate();
+            // if(checkin < date){
+            //     alert("Im sorry , please choose the present or future date for reservation");
+            //     return false;
+            // }
         });
 
         });
