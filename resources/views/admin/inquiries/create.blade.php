@@ -94,10 +94,10 @@
                     @endif
                 </div>
             </div>
-            {!! Form::submit(trans('quickadmin.qa_save'), ['id' => 'check_me', 'class' => 'btn btn-danger']) !!}
-            {!! Form::close() !!}
         </div>  
     </div>
+    {!! Form::submit(trans('quickadmin.qa_save'), ['id' => 'check_me', 'class' => 'btn btn-danger']) !!}
+    {!! Form::close() !!}
 
     
 @stop
