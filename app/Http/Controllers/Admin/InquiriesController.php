@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Inquiry;
 use App\Customer;
+use App\Quotation;
 use App\Room;
+use App\Fee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
@@ -50,8 +52,9 @@ class InquiriesController extends Controller
 
         $customers = Customer::get()->pluck('full_name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $rooms = Room::get()->pluck('room_number', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $fees = Fee::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
-        return view('admin.inquiries.create', compact('customers', 'rooms'));
+        return view('admin.inquiries.create', compact('customers', 'rooms', 'fees'));
     }
 
     /**
@@ -66,6 +69,8 @@ class InquiriesController extends Controller
             return abort(401);
         }
         $inquiry = Inquiry::create($request->all());
+
+        $quotation = Quotation::create($request->all());
 
         return redirect()->route('admin.inquiries.index');
     }

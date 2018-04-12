@@ -1,7 +1,12 @@
 <?php
 Route::get('/', function () {
+    // @if(Auth::user()->role_id == 1){}
     return redirect('/admin/home');
+    // @elseif(Auth::user()->role_id == 2)
+    // return redirect('/marketingDashboard');
+    // @endif
 });
+
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');
@@ -20,6 +25,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/home', 'HomeController@index');
+    Route::get('/marketingDashboard', 'MarketingController@index');
 
     Route::resource('roles', 'Admin\RolesController');
     Route::post('roles_mass_destroy', ['uses' => 'Admin\RolesController@massDestroy', 'as' => 'roles.mass_destroy']);
@@ -77,7 +83,16 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     Route::resource('room_types', 'Admin\RoomTypesController');
     //Route::get('inquiries/create/', ['as' => 'inquiries.create', 'uses' => 'Admin\InquiriesController@create']);
-   Route::post('room_types_mass_destroy', ['uses' => 'Admin\RoomTypesController@massDestroy', 'as' => 'room_types.mass_destroy']);
-   Route::post('room_types_restore/{id}', ['uses' => 'Admin\RoomTypesController@restore', 'as' => 'room_types.restore']);
-   Route::delete('room_types_perma_del/{id}', ['uses' => 'Admin\RoomTypesController@perma_del', 'as' => 'room_types.perma_del']);
+    Route::post('room_types_mass_destroy', ['uses' => 'Admin\RoomTypesController@massDestroy', 'as' => 'room_types.mass_destroy']);
+    Route::post('room_types_restore/{id}', ['uses' => 'Admin\RoomTypesController@restore', 'as' => 'room_types.restore']);
+    Route::delete('room_types_perma_del/{id}', ['uses' => 'Admin\RoomTypesController@perma_del', 'as' => 'room_types.perma_del']);
 });
+
+// Route::group(['middleware' => ['auth'], 'prefix' => 'marketing', 'as' => 'marketing.'], function () {
+//     Route::get('/marketingDashboard', 'MarketingController@index');
+
+//     Route::resource('customers', 'Admin\CustomersController');
+//     Route::post('customers_mass_destroy', ['uses' => 'Admin\CustomersController@massDestroy', 'as' => 'customers.mass_destroy']);
+//     Route::post('customers_restore/{id}', ['uses' => 'Admin\CustomersController@restore', 'as' => 'customers.restore']);
+//     Route::delete('customers_perma_del/{id}', ['uses' => 'Admin\CustomersController@perma_del', 'as' => 'customers.perma_del']);
+// });

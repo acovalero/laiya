@@ -20,7 +20,7 @@ class Inquiry extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['time_from', 'time_to', 'additional_information', 'customer_id', 'rooms_id','pax'];
+    protected $fillable = ['time_from', 'time_to', 'customer_id', 'rooms_id'];
 
 
     /**

@@ -35,7 +35,6 @@
 
                         <th>@lang('quickadmin.inquiries.fields.customer')</th>
                         <th>@lang('quickadmin.inquiries.fields.room')</th>
-                        <th>@lang('quickadmin.inquiries.fields.pax')</th>
                         <th>@lang('quickadmin.inquiries.fields.time-from')</th>
                         <th>@lang('quickadmin.inquiries.fields.time-to')</th>
                         <th>@lang('quickadmin.inquiries.fields.created_at')</th>
@@ -57,11 +56,9 @@
 
                                 <td field-key='customer'>{{ $inquiry->customer->full_name or '' }}</td>
                                 <td field-key='room'>{{ $inquiry->room->room_number or '' }}</td>
-                                <td field-key='pax'>{{ $inquiry->pax}}</td>
                                 <td field-key='time_from'>{{ $inquiry->time_from }}</td>
                                 <td field-key='time_to'>{{ $inquiry->time_to }}</td>
                                 <td field-key='created_at'>{{ $inquiry->created_at }}</td>
-                                {{-- <td field-key='additional_information'>{!! $inquiry->additional_information !!}</td> --}}
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('inquiry_delete')

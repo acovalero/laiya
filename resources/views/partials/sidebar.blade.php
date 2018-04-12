@@ -133,7 +133,7 @@
             <!-- MARKETING -->
             @elseif(Auth::user()->role_id == 2)
             {{-- DASHBOARD --}}
-            <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
+            <li class="{{ $request->segment(2) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">
                     <i class="fa fa-wrench"></i>
                     <span class="title">@lang('quickadmin.qa_dashboard')</span>

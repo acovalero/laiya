@@ -1,5 +1,49 @@
 @extends('layouts.app')
+<script>
+    $(document).ready(function(){
+        $(".add-row").click(function(){
+            var markup = ""
+                +"<tr>"
+                +"<td>1</td>"
+                +"<td>"
+                +"<div class='form-group'>"
+                +"<div class='input-group date'>"
+                +"<div class='input-group-addon'><i class='fa fa-calendar'></i></div>"
+                +"<input type='text' class='form-control pull-right startdate' name='startdate[]'>"
+                +"</div>"
+                +"</div>"
+                +"</td>"
+                +"<td>"
+                +"<input type='hidden' class='form-control pull-right enddate' name='enddate[]'>"
+                +"<input type='checkbox' name='ispresent[]'/></td>"
+                +"<td>"
+                +"<select name='presenttype[]' class='form-control'>"
+                +"<option disabled>Select Attendance Type...</option>"
+                +"<option value='Whole Day'>Whole Day</option>"
+                +"<option value='AM'>AM</option>"
+                +"<option value='PM'>PM</option>"
+                +"</select>"
+                +"</td>"
+                +"<td>"
+                +"<select name='areaid[]' class='form-control'>"
+                +"<option disabled>Select Area...</option>"
+                +"<option value=</option>"
+                +"</select>"
+                +"</td>"
+                +"<td>"
+                +"<select name='projectid[]' class='form-control'>"
+                +"<option disabled>Select Project...</option>"
+                +"<option value=</option>"
+                +"</select>"
+                +"</td>"
+                +"</tr>"
+                +"";
+            $("table tbody").append(markup);
+        });
+s
 
+    });
+</script>
 @section('content')
     <h3 class="page-title">@lang('quickadmin.customers.title')</h3>
 
@@ -39,6 +83,37 @@
                     </table>
                 </div>
             </div><!-- Nav tabs -->
+
+            <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Add Inquiry</button>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <form method="post" action="">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="modalLabel">Add Inquiry</h4>
+                            </div>
+
+                            <div class="modal-body">
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <hr>
+
+
+
+
 <ul class="nav nav-tabs" role="tablist">
     
 <li role="presentation" class="active"><a href="#inquiries" aria-controls="inquiries" role="tab" data-toggle="tab">Inquiries</a></li>

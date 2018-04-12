@@ -16,7 +16,7 @@ class CreateQuotationsTable extends Migration
         Schema::create('quotations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('pax');
-            $table->double('amount');
+            $table->double('amount')->nullable();
 
             $table->integer('fee_lists_id')->nullable()->unsigned();
             $table->integer('room_lists_id')->nullable()->unsigned();

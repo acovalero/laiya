@@ -80,10 +80,7 @@ return [
 			'customer' => 'Customer',
 			'room' => 'Room',
 			'time-from' => 'Time from',
-			'time-to' => 'Time to',
-			'additional-information' => 'Additional information',
-			'pax' => 'Pax',
-			'room_type' => 'Room Type',
+			'time-to' => 'Time to',	
 			'created_at' => 'Inquired Date'
 		],
 	],
@@ -93,6 +90,7 @@ return [
 		'fields' => [
 			'customer' => 'Customer',
 			'room' => 'Room',
+			'fee' => 'Fee',
 			'time-from' => 'Time from',
 			'time-to' => 'Time to',
 			'additional-information' => 'Additional information',
@@ -131,7 +129,9 @@ return [
 		],
         'no_rooms_found' => 'No rooms were found for your chosen dates.',
         'book_room' => 'Book room',
-    ],
+	],
+	'qa_reminders' =>'Reminders',
+	
 	'qa_create' => 'Create',
 	'qa_save' => 'Save',
 	'qa_edit' => 'Edit',
