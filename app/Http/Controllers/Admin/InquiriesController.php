@@ -67,25 +67,50 @@ class InquiriesController extends Controller
      */
     public function store(StoreInquiriesRequest $request)
     {
-        $input = $request->all();
+        // $input = $request->all();
         // dd($input);
+        // if (!Gate::allows('inquiry_create')) {
+        //     return abort(401);
+        // }
+
+        // $inquiry = Inquiry::create($request->all());
+
+        // $input = Input::all();
+        // $condition = $input['rooms_id'];
+        // foreach ($condition as $key => $condition) {
+        //     $quotation = new Quotation;
+        //     $quotation->rooms_id = $input['rooms_id'][$key];
+        //     $quotation->pax = $input['pax'][$key];
+        //     $quotation->amount = $input['amount'][$key];
+        //     $quotation->save();
+        // }
+        // $quotation = Quotation::create($request->all());
+
+
         if (!Gate::allows('inquiry_create')) {
             return abort(401);
         }
+        $quotation = new Quotation;
+        $rooms_id = $request->get('rooms_id');
+        $pax = $request->get('pax');
+        $amount = $request->get('amount');
 
-        $inquiry = Inquiry::create($request->all());
+        $dataset=[];
 
-        $input = Room::all();
-        $condition = $input['rooms_id'];
-        foreach ($condition as $key => $condition) {
-            $quotation = new Quotation;
-            $quotation->rooms_id = $input['rooms_id'][$key];
-            $quotation->pax = $input['pax'][$key];
-            $quotation->amount = $input['amount'][$key];
-            $quotation->save();
+        foreach($rooms_id as $key => $value){
+        $dataset[] = [
+            'rooms_id' =>$rooms_id[$key],
+            'pax'=>$pax[$key],
+            'amount'=>$amount[$key],
+            ];
         }
 
-        // $quotation = Quotation::create($request->all());
+        $quotation->save();
+        // dd($dataset);
+
+
+
+        
 
         return redirect()->route('admin.inquiries.index');
     }
