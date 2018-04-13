@@ -14,7 +14,8 @@ class CreateQuotationListsTable extends Migration
     public function up()
     {
         Schema::create('quotation_lists', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id',100)->primary();
+
             $table->integer('quotations_id')->nullable()->unsigned();
             $table->timestamps();
 

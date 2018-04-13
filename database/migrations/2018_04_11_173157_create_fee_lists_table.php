@@ -14,7 +14,7 @@ class CreateFeeListsTable extends Migration
     public function up()
     {
         Schema::create('fee_lists', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id',100)->primary();
 
             $table->integer('fees_id')->nullable()->unsigned();
             $table->timestamps();

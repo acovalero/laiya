@@ -94,9 +94,9 @@
                     @endif
                 </div>
             </div>
-        
+         -->
             <!-- Pax  -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('pax', trans('quickadmin.quotations.fields.pax').'*', ['class' => 'control-label']) !!}
                     {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}
@@ -107,10 +107,10 @@
                         </p>
                     @endif
                 </div>
-            </div>
+            </div> -->
 
             <!-- Fee Selection -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('fees_id', trans('quickadmin.quotations.fields.fee').'', ['class' => 'control-label']) !!}
                     {!! Form::select('fees_id', $fees, old('fees_id'), ['class' => 'form-control select2','name'=>'fees_id[]']) !!}
@@ -279,21 +279,21 @@
         });
 
 
-         $('.add2').click(function () {
-            var n = ($('.resultbody2 tr').length - 0) + 1;
-            var tr = '<tr><td class="no">' + n + '</td>' +
-                    '<td>{!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}{!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}<p class="help-block"></p>@if($errors->has('rooms_id'))<p class="help-block">{{ $errors->first('rooms_id') }}</p>@endif</td>'+
-                    '<td><input type="text" class="fname form-control" name="fname[]" value="{{ old('fname') }}"></td>'+
-                    '<td><input type="text" class="rollno form-control" name="rollno[]" value="{{ old('rollno') }}"></td>'+
-                    '<td><input type="text" class="obtainedmarks form-control" name="obtainedmarks[]" value="{{ old('email') }}"></td>'+
-                    '<td><input type="text" class="totalmarks form-control" name="totalmarks[]"></td>'+
-                    '<td><input type="text" class="percentage form-control" name="percentage[]"></td>'+
-                    '<td><input type="button" class="btn btn-danger delete" value="x"></td></tr>';
-            $('.resultbody2').append(tr);
-        });
-        $('.resultbody2').delegate('.delete', 'click', function () {
-            $(this).parent().parent().remove();
-        });
+        //  $('.add2').click(function () {
+        //     var n = ($('.resultbody2 tr').length - 0) + 1;
+        //     var tr = '<tr><td class="no">' + n + '</td>' +
+        //             '<td>{!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}z{!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}<p class="help-block"></p>@if($errors->has('rooms_id'))<p class="help-block">{{ $errors->first('rooms_id') }}</p>@endif</td>'+
+        //             '<td><input type="text" class="fname form-control" name="fname[]" value="{{ old('fname') }}"></td>'+
+        //             '<td><input type="text" class="rollno form-control" name="rollno[]" value="{{ old('rollno') }}"></td>'+
+        //             '<td><input type="text" class="obtainedmarks form-control" name="obtainedmarks[]" value="{{ old('email') }}"></td>'+
+        //             '<td><input type="text" class="totalmarks form-control" name="totalmarks[]"></td>'+
+        //             '<td><input type="text" class="percentage form-control" name="percentage[]"></td>'+
+        //             '<td><input type="button" class="btn btn-danger delete" value="x"></td></tr>';
+        //     $('.resultbody2').append(tr);
+        // });
+        // $('.resultbody2').delegate('.delete', 'click', function () {
+        //     $(this).parent().parent().remove();
+        // });
 
         });
 

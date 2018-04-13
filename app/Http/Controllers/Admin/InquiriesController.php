@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreInquiriesRequest;
 use App\Http\Requests\Admin\UpdateInquiriesRequest;
-
+use Faker\Provider\Uuid;
 class InquiriesController extends Controller
 {
     /**
@@ -72,52 +72,88 @@ class InquiriesController extends Controller
     {
         // $input = $request->all();
         // dd($input);
-        if (!Gate::allows('inquiry_create')) {
-            return abort(401);
-        }
-        
-        $inquiry = new Inquiry;
+//        if (!Gate::allows('inquiry_create')) {
+//            return abort(401);
+//        }
+//
+    //    $inquiry = new Inquiry;
 
-        $inquiry->customer_id = $request->input('customer_id');
-        $inquiry->time_from = $request->input('time_from');
-        $inquiry->time_to = $request->input('time_to');
-        $inquiry->save();
-
-        $room = Room::all();
-        $condition = $room['rooms_id'];
-        foreach ($condition as $key => $condition) {
-
-            $roomList = new RoomList; 
-            $roomList->rooms_id = $room['rooms_id'][$key];
-            $roomList->save();
-        }
+    //    $inquiry->customer_id = $request->input('customer_id');
+    //    $inquiry->time_from = $request->input('time_from');
+    //    $inquiry->time_to = $request->input('time_to');
+    //    $inquiry->save();
+//
+//        $room = Room::all();
+//        $condition = $room['rooms_id'];
+//        foreach ($condition as $key => $condition) {
+//
+//            $roomList = new RoomList;
+//            $roomList->rooms_id = $room['rooms_id'][$key];
+//            $roomList->save();
+//        }
 
 
         // $quotation = Quotation::create($request->all());
 
 
-        // if (!Gate::allows('inquiry_create')) {
-        //     return abort(401);
-        // }
-        // $quotation = new Quotation;
-        // $rooms_id = $request->get('rooms_id');
-        // $pax = $request->get('pax');
-        // $amount = $request->get('amount');
+         if (!Gate::allows('inquiry_create')) {
+             return abort(401);
+         }
+         $quotation = new Quotation;
+         $roomlist = new RoomList();
 
-        // $dataset=[];
 
-        // foreach($rooms_id as $key => $value){
-        //     $dataset[] = [
-        //         'rooms_id' =>$rooms_id[$key],
-        //         'pax'=>$pax[$key],
-        //         'amount'=>$amount[$key],
-        //     ];
-        // }
 
-        //$quotation->save();
-        // Quotation::table('quotations')->insert($dataset);
 
-        //dd($dataset);
+         $fee_list_id = Uuid::uuid();
+         $room_list_id = Uuid::uuid();
+         $rooms_id = $request->get('rooms_id');
+         $pax = $request->get('pax');
+         $amount = $request->get('amount');
+
+
+//rooms form insert
+         $dataset =[];
+
+         foreach($rooms_id as $key => $value){
+             $dataset[] = [
+                 'rooms_id' =>$rooms_id[$key],
+                 'pax'=>$pax[$key],
+                 'fee_lists_id' => $fee_list_id,
+                 'room_lists_id' => $room_list_id,
+                 'amount'=>$amount[$key],
+             ];
+         }
+         // saving to database
+           DB::table('quotations')->insert($dataset);
+
+// room_lists table
+        $dataset2 =[];
+
+        foreach($rooms_id as $key => $value){
+            $dataset2[] = [
+                'id' =>$room_list_id,
+                'rooms_id'=>$rooms_id[$key],
+            ];
+        }
+
+        // saving to database
+    DB::table('room_lists')->insert($dataset2);
+
+//fee_lists table
+//         $dataset3 =[];
+
+//         foreach($rooms_id as $key => $value){
+//             $dataset3[] = [
+//                 'id' =>$fee_list_id,
+//                 'fees_id'=>'Make A fee list or a check list or something',
+//             ];
+//         }
+
+// // saving to database
+//   DB::table('fee_lists')->insert($dataset3);
+
+//         dd($dataset, $dataset2, $dataset3);
 
 
 

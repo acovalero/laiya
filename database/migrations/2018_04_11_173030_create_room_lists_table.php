@@ -14,10 +14,10 @@ class CreateRoomListsTable extends Migration
     public function up()
     {
         Schema::create('room_lists', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id',100)->primary();
             $table->timestamps();
 
-            $table->integer('rooms_id')->nullable()->unsigned();
+            $table->integer('rooms_id')->unsigned()->nullable();
             $table->softDeletes();
 
         });

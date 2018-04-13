@@ -30,10 +30,12 @@ class Migrations extends Migration
 
         //Quotation
         Schema::table('quotations', function (Blueprint $table) {
-            $table->foreign('fee_lists_id')
-                ->references('id')->on('fee_lists')->onDelete('cascade');
-            $table->foreign('room_lists_id')
-                ->references('id')->on('room_lists')->onDelete('cascade');
+            // $table->foreign('room_lists_id')
+            //     ->references('id')->on('room_lists')->onDelete('cascade');
+            // $table->foreign('fee_lists_id')
+            //     ->references('id')->on('fee_lists')->onDelete('cascade');
+            $table->foreign('rooms_id')
+                ->references('id')->on('rooms')->onDelete('cascade');
         });
 
         //Quotation List
@@ -46,6 +48,12 @@ class Migrations extends Migration
         Schema::table('fee_lists', function (Blueprint $table) {
             $table->foreign('fees_id')
                 ->references('id')->on('fees')->onDelete('cascade');
+        });
+
+        //Fee Type List
+        Schema::table('fees', function (Blueprint $table) {
+            $table->foreign('fee_types_id')
+                ->references('id')->on('fee_types')->onDelete('cascade');
         });
 
         //Booking

@@ -19,7 +19,7 @@ class CreateFeesTable extends Migration
             $table->integer('quantity')->nullable();
             $table->timestamps();
 
-            $table->integer('fees_types_id')->nullable()->unsigned();
+            $table->integer('fee_types_id')->nullable()->unsigned();
             $table->softDeletes();
         });
     }

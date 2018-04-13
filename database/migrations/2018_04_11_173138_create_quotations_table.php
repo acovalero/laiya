@@ -18,8 +18,10 @@ class CreateQuotationsTable extends Migration
             $table->integer('pax');
             $table->double('amount')->nullable();
 
-            $table->integer('fee_lists_id')->nullable()->unsigned();
-            $table->integer('room_lists_id')->nullable()->unsigned();
+            $table->string('fee_lists_id',100);
+            $table->string('room_lists_id',100);
+
+            $table->integer('rooms_id')->nullable()->unsigned();
 
             $table->timestamps();
             $table->softDeletes();

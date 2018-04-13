@@ -13,8 +13,8 @@ class InquirySeed extends Seeder
     {
         $items = [
             
-            ['id' => 1, 'time_from' => '2018-04-13 3:23', 'time_to' => '2018-04-14 3:23', 'customer_id' => '1', 'room_id' => '1'],
-            ['id' => 2, 'time_from' => '2018-04-13 3:23', 'time_to' => '2018-04-15 3:23', 'customer_id' => '2', 'room_id' => '2'],
+            // ['id' => 1, 'time_from' => '2018-04-13 3:23', 'time_to' => '2018-04-14 3:23', 'customer_id' => '1', 'room_id' => '1'],
+            // ['id' => 2, 'time_from' => '2018-04-13 3:23', 'time_to' => '2018-04-15 3:23', 'customer_id' => '2', 'room_id' => '2'],
 
         ];
 

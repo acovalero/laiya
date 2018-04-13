@@ -32,6 +32,7 @@ class Room extends Model
     {
         return $this->belongsTo(Room_type::class, 'room_types_id')->withTrashed();
     }
+    
 
     public function setRoomTypeIdAttribute($input)
     {
@@ -41,6 +42,16 @@ class Room extends Model
     public function inquiry()
     {
         return $this->HasOne(Inquiry::class, 'rooms_id')->withTrashed();
+    }
+
+    public function quotation()
+    {
+        return $this->HasOne(Quotation::class, 'rooms_id')->withTrashed();
+    }
+
+    public function room_lists()
+    {
+        return $this->hasOne(RoomList::class, 'rooms_lists_id')->withTrashed();
     }
 
 }

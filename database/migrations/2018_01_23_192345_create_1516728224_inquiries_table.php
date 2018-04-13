@@ -22,7 +22,7 @@ class Create1516728224InquiriesTable extends Migration
                 $table->timestamps();
                 $table->softDeletes();
 
-                $table->integer('quotation_lists_id')->nullable()->unsigned();
+                $table->string('quotation_lists_id',100)->nullable();
 
 
                 $table->index(['deleted_at']);
