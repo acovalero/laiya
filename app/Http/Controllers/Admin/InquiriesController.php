@@ -67,7 +67,7 @@ class InquiriesController extends Controller
      */
     public function store(StoreInquiriesRequest $request)
     {
-        $input = $request->all();
+/*        $input = $request->all();
         // dd($input);
         if (!Gate::allows('inquiry_create')) {
             return abort(401);
@@ -85,7 +85,28 @@ class InquiriesController extends Controller
             $quotation->save();
         }
 
-        // $quotation = Quotation::create($request->all());
+        // $quotation = Quotation::create($request->all());*/
+
+        if (!Gate::allows('inquiry_create')) {
+            return abort(401);
+        }
+        $quotation = new Quotation;
+        $rooms_id = $request->get('rooms_id');
+        $pax = $request->get('pax');
+        $amount = $request->get('amount');
+
+        $dataset=[];
+
+        foreach($rooms_id as $key => $value){
+        $dataset[] = ['rooms_id' =>$rooms_id[$key],
+            'pax'=>$pax[$key],
+            'amount'=>$amount[$key],
+                    ];
+        }
+
+        dd($dataset);
+
+
 
         return redirect()->route('admin.inquiries.index');
     }
