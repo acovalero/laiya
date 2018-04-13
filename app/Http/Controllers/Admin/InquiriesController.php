@@ -6,8 +6,11 @@ use App\Inquiry;
 use App\Customer;
 use App\Quotation;
 use App\Room;
+use App\RoomList;
 use App\Fee;
+use App\FeeList;
 use App\Room_type;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
@@ -69,44 +72,50 @@ class InquiriesController extends Controller
     {
         // $input = $request->all();
         // dd($input);
-        // if (!Gate::allows('inquiry_create')) {
-        //     return abort(401);
-        // }
-
-        // $inquiry = Inquiry::create($request->all());
-
-        // $input = Input::all();
-        // $condition = $input['rooms_id'];
-        // foreach ($condition as $key => $condition) {
-        //     $quotation = new Quotation;
-        //     $quotation->rooms_id = $input['rooms_id'][$key];
-        //     $quotation->pax = $input['pax'][$key];
-        //     $quotation->amount = $input['amount'][$key];
-        //     $quotation->save();
-        // }
-        // $quotation = Quotation::create($request->all());
-
-
         if (!Gate::allows('inquiry_create')) {
             return abort(401);
         }
-        $quotation = new Quotation;
-        $rooms_id = $request->get('rooms_id');
-        $pax = $request->get('pax');
-        $amount = $request->get('amount');
+        
+        $inquiry = new Inquiry;
 
-        $dataset=[];
+        $inquiry->customer_id = $request->input('customer_id');
+        $inquiry->time_from = $request->input('time_from');
+        $inquiry->time_to = $request->input('time_to');
+        $inquiry->save();
 
-        foreach($rooms_id as $key => $value){
-            $dataset[] = [
-                'rooms_id' =>$rooms_id[$key],
-                'pax'=>$pax[$key],
-                'amount'=>$amount[$key],
-            ];
+        $room = Room::all();
+        $condition = $room['rooms_id'];
+        foreach ($condition as $key => $condition) {
+
+            $roomList = new RoomList; 
+            $roomList->rooms_id = $room['rooms_id'][$key];
+            $roomList->save();
         }
 
+
+        // $quotation = Quotation::create($request->all());
+
+
+        // if (!Gate::allows('inquiry_create')) {
+        //     return abort(401);
+        // }
+        // $quotation = new Quotation;
+        // $rooms_id = $request->get('rooms_id');
+        // $pax = $request->get('pax');
+        // $amount = $request->get('amount');
+
+        // $dataset=[];
+
+        // foreach($rooms_id as $key => $value){
+        //     $dataset[] = [
+        //         'rooms_id' =>$rooms_id[$key],
+        //         'pax'=>$pax[$key],
+        //         'amount'=>$amount[$key],
+        //     ];
+        // }
+
         //$quotation->save();
-        // USE RAW >> DB::table('something')->insert($dataset);
+        // Quotation::table('quotations')->insert($dataset);
 
         //dd($dataset);
 
