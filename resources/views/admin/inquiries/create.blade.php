@@ -81,7 +81,7 @@
         </div> 
         <div class="panel-body">
 
-            <!-- Room Selection -->
+            {{-- <!-- Room Selection -->
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}
@@ -121,7 +121,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
+            </div> --}}
 
 
             {{-- ROOMS --}}
@@ -151,17 +151,18 @@
                                     </p>
                                 @endif
                             </td>
-                    
                             <td>Room Type</td>
-                           {{-- @foreach($room_types as $room_type) --}}
                             <td>Pax</td>
-                            {{-- @endforeach --}}
                             <td>
-                                <input type="text" class="obtainedmarks form-control" name="obtainedmarks[]" value="{{ old('email') }}">
+                                {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}
+                                <p class="help-block"></p>
+                                @if($errors->has('pax'))
+                                    <p class="help-block">
+                                        {{ $errors->first('pax') }}
+                                    </p>
+                                @endif
                             </td>
-                            <td>
-                                <input type="text" class="totalmarks form-control" name="totalmarks[]">
-                            </td>
+                            <td><input type="text" class="form-control" name="amount[]"></td>
                            
                             <td>
                                 <input type="button" class="btn btn-danger delete" value="x">
@@ -176,13 +177,13 @@
 
 
                 {{-- FEES --}}
-                <table class="table table-striped">
+                {{-- <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Fee</th>
-                                <th>Quantity</th>
                                 <th>Price</th>
+                                <th>Quantity</th>
                               
                                 <th>Delete</th>
                             </tr>
@@ -193,21 +194,16 @@
                                 <td>
                                     <input type="text" class="name form-control" name="name[]" value="{{ old('name') }}">
                                 </td>
+                                <td><input type="text" class="name form-control" name="name[]" value="{{ old('name') }}"></td>
                                 <td>
-                                    <input type="text" class="fname form-control" name="fname[]" value="{{ old('fname') }}">
+                                    {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}
+                                    <p class="help-block"></p>
+                                    @if($errors->has('pax'))
+                                        <p class="help-block">
+                                            {{ $errors->first('pax') }}
+                                        </p>
+                                    @endif
                                 </td>
-                                <td>
-                                    <input type="text" class="rollno form-control" name="rollno[]" value="{{ old('rollno') }}">
-                                </td>
-                                <td>
-                                    <input type="text" class="obtainedmarks form-control" name="obtainedmarks[]" value="{{ old('email') }}">
-                                </td>
-                                <td>
-                                    <input type="text" class="totalmarks form-control" name="totalmarks[]">
-                                </td>
-                                {{-- <td>
-                                    <input type="text" class="percentage form-control" name="percentage[]">
-                                </td> --}}
                                 <td>
                                     <input type="button" class="btn btn-danger delete" value="x">
                                 </td>
@@ -215,7 +211,7 @@
     
                         </tbody>
                     </table>
-                    <center><input type="button" class="btn btn-lg btn-primary add2" value="Add New Item">
+                    <center><input type="button" class="btn btn-lg btn-primary add2" value="Add New Item"> --}}
 
 
 
@@ -271,10 +267,10 @@
             var n = ($('.resultbody tr').length - 0) + 1;
             var tr = '<tr><td class="no">' + n + '</td>' +
                     '<td>{!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}{!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}<p class="help-block"></p>@if($errors->has('rooms_id'))<p class="help-block">{{ $errors->first('rooms_id') }}</p>@endif</td>'+
-                    '<td><input type="text" class="fname form-control" name="fname[]" value="{{ old('fname') }}"></td>'+
-                    '<td><input type="text" class="rollno form-control" name="rollno[]" value="{{ old('rollno') }}"></td>'+
-                    '<td><input type="text" class="obtainedmarks form-control" name="obtainedmarks[]" value="{{ old('email') }}"></td>'+
-                    '<td><input type="text" class="totalmarks form-control" name="totalmarks[]"></td>'+
+                    '<td>Room Type</td>'+
+                    '<td>Pax</td>'+
+                    '<td>{!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}<p class="help-block"></p>@if($errors->has('pax'))<p class="help-block">{{ $errors->first('pax') }}</p>@endif</td>'+
+                    '<td><input type="text" class="form-control" name="amount[]"></td>'+
                     '<td><input type="button" class="btn btn-danger delete" value="x"></td></tr>';
             $('.resultbody').append(tr);
         });

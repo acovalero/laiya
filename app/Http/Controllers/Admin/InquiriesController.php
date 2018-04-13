@@ -72,9 +72,20 @@ class InquiriesController extends Controller
         if (!Gate::allows('inquiry_create')) {
             return abort(401);
         }
+
         $inquiry = Inquiry::create($request->all());
 
-        $quotation = Quotation::create($request->all());
+        $input = Room::all();
+        $condition = $input['rooms_id'];
+        foreach ($condition as $key => $condition) {
+            $quotation = new Quotation;
+            $quotation->rooms_id = $input['rooms_id'][$key];
+            $quotation->pax = $input['pax'][$key];
+            $quotation->amount = $input['amount'][$key];
+            $quotation->save();
+        }
+
+        // $quotation = Quotation::create($request->all());
 
         return redirect()->route('admin.inquiries.index');
     }
