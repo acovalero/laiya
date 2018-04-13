@@ -151,12 +151,11 @@
                                     </p>
                                 @endif
                             </td>
-                            <td>
-                                <input type="text" class="fname form-control" name="fname[]" value="{{ old('fname') }}">
-                            </td>
-                            <td>
-                                <input type="text" class="rollno form-control" name="rollno[]" value="{{ old('rollno') }}">
-                            </td>
+                    
+                            <td>Room Type</td>
+                           {{-- @foreach($room_types as $room_type) --}}
+                            <td>Pax</td>
+                            {{-- @endforeach --}}
                             <td>
                                 <input type="text" class="obtainedmarks form-control" name="obtainedmarks[]" value="{{ old('email') }}">
                             </td>
