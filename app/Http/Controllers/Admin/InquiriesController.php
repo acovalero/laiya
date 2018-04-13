@@ -65,6 +65,8 @@ class InquiriesController extends Controller
      */
     public function store(StoreInquiriesRequest $request)
     {
+        $input = $request->all();
+        // dd($input);
         if (!Gate::allows('inquiry_create')) {
             return abort(401);
         }

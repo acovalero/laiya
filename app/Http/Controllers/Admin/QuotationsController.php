@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Quotation;
 use App\Customer;
 use App\Room;
+use App\Fee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
@@ -123,8 +124,10 @@ class QuotationsController extends Controller
             return abort(401);
         }
         $quotation = Quotation::findOrFail($id);
+        $rooms = Room::get()->pluck('room_number', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $fees = Room::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
-        return view('admin.quotations.show', compact('quotation'));
+        return view('admin.quotations.show', compact('quotation', 'rooms', 'fees'));
     }
 
 

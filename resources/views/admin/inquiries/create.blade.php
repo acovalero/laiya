@@ -85,7 +85,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('rooms_id'))
                         <p class="help-block">
@@ -99,7 +99,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('pax', trans('quickadmin.quotations.fields.pax').'*', ['class' => 'control-label']) !!}
-                    {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('pax'))
                         <p class="help-block">
@@ -113,7 +113,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('fees_id', trans('quickadmin.quotations.fields.fee').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('fees_id', $fees, old('fees_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::select('fees_id', $fees, old('fees_id'), ['class' => 'form-control select2','name'=>'fees_id[]']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('fees_id'))
                         <p class="help-block">
@@ -123,9 +123,95 @@
                 </div>
             </div>
 
-            
 
-    
+
+            <!-- Room Selection -->
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}
+                    {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('rooms_id'))
+                        <p class="help-block">
+                            {{ $errors->first('rooms_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
+            <!-- Pax  -->
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('pax', trans('quickadmin.quotations.fields.pax').'*', ['class' => 'control-label']) !!}
+                    {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('pax'))
+                        <p class="help-block">
+                            {{ $errors->first('pax') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
+            <!-- Fee Selection -->
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('fees_id', trans('quickadmin.quotations.fields.fee').'', ['class' => 'control-label']) !!}
+                    {!! Form::select('fees_id', $fees, old('fees_id'), ['class' => 'form-control select2','name'=>'fees_id[]']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('fees_id'))
+                        <p class="help-block">
+                            {{ $errors->first('fees_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
+
+            <!-- Room Selection -->
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}
+                    {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('rooms_id'))
+                        <p class="help-block">
+                            {{ $errors->first('rooms_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
+            <!-- Pax  -->
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('pax', trans('quickadmin.quotations.fields.pax').'*', ['class' => 'control-label']) !!}
+                    {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('pax'))
+                        <p class="help-block">
+                            {{ $errors->first('pax') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
+            <!-- Fee Selection -->
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('fees_id', trans('quickadmin.quotations.fields.fee').'', ['class' => 'control-label']) !!}
+                    {!! Form::select('fees_id', $fees, old('fees_id'), ['class' => 'form-control select2','name'=>'fees_id[]']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('fees_id'))
+                        <p class="help-block">
+                            {{ $errors->first('fees_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 

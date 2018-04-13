@@ -17,14 +17,6 @@
                             <td field-key='customer'>{{ $quotation->customer->first_name or '' }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.quotations.fields.room')</th>
-                            <td field-key='room'>{{ $quotation->room->room_number or '' }}</td>
-                        </tr>
-                        <tr>
-                            <th>@lang('quickadmin.quotations.fields.pax')</th>
-                            <td field-key='room'>{{ $quotation->pax}}</td>
-                        </tr>
-                        <tr>
                             <th>@lang('quickadmin.quotations.fields.time-from')</th>
                             <td field-key='time_from'>{{ $quotation->time_from }}</td>
                         </tr>
@@ -33,8 +25,12 @@
                             <td field-key='time_to'>{{ $quotation->time_to }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.quotations.fields.additional-information')</th>
-                            <td field-key='additional_information'>{!! $quotation->additional_information !!}</td>
+                            <th>@lang('quickadmin.quotations.fields.room')</th>
+                            <td field-key='room'>{{ $quotation->room->room_number or '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.quotations.fields.pax')</th>
+                            <td field-key='room'>{{ $quotation->pax}}</td>
                         </tr>
                     </table>
                 </div>

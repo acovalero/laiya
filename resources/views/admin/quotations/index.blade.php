@@ -3,12 +3,12 @@
 
 @section('content')
     <h3 class="page-title">@lang('quickadmin.quotations.title')</h3>
-    @can('quotation_create')
+    {{-- @can('quotation_create')
     <p>
         <a href="{{ route('admin.quotations.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
         
     </p>
-    @endcan
+    @endcan --}}
 
     @can('quotation_delete')
     <p>
@@ -36,9 +36,7 @@
                         <th>@lang('quickadmin.quotations.fields.customer')</th>
                         <th>@lang('quickadmin.quotations.fields.room')</th>
                         <th>@lang('quickadmin.quotations.fields.pax')</th>
-                        <th>@lang('quickadmin.quotations.fields.time-from')</th>
-                        <th>@lang('quickadmin.quotations.fields.time-to')</th>
-                        <th>@lang('quickadmin.quotations.fields.additional-information')</th>
+                        
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -55,12 +53,9 @@
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
                                 @endcan
 
-                                <td field-key='customer'>{{ $quotation->customer->full_name or '' }}</td>
+                                <td field-key='customer'>{{ $quotation->customer->first_name or '' }}</td>
                                 <td field-key='room'>{{ $quotation->room->room_number or '' }}</td>
                                 <td field-key='pax'>{{ $quotation->pax}}</td>
-                                <td field-key='time_from'>{{ $quotation->time_from }}</td>
-                                <td field-key='time_to'>{{ $quotation->time_to }}</td>
-                                <td field-key='additional_information'>{!! $quotation->additional_information !!}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('quotation_delete')
@@ -91,7 +86,7 @@
                                     <a href="{{ route('admin.quotations.edit',[$quotation->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                     @endcan
                                     @can('quotation_delete')
-{!! Form::open(array(
+                                    {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
