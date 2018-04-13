@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Fee extends Model
+class FeeType extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['quantity'];
+    protected $fillable = ['name','price'];
 }

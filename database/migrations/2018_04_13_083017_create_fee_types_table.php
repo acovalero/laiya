@@ -4,23 +4,20 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeesTable extends Migration
+class CreateFeeTypesTable extends Migration
 {
     /**
      * Run the migrations.
      *
-     * 
      * @return void
      */
     public function up()
     {
-        Schema::create('fees', function (Blueprint $table) {
+        Schema::create('fee_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('quantity');
+            $table->string('name');
+            $table->double('price');
             $table->timestamps();
-
-            $table->integer('fees_types_id')->nullable()->unsigned();
-            $table->softDeletes();
         });
     }
 
@@ -31,6 +28,6 @@ class CreateFeesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fees');
+        Schema::dropIfExists('fee_types');
     }
 }
