@@ -124,16 +124,17 @@
             </div>
 
 
+            {{-- ROOMS --}}
             <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Student Name</th>
-                            <th>Father Name</th>
-                            <th>Roll No</th>
-                            <th>Obtained Marks</th>
-                            <th>Total Marks</th>
-                            <th>%</th>
+                            <th>@lang('quickadmin.rooms.fields.room-number')</th>
+                            <th>@lang('quickadmin.room_types.fields.room_type')</th>
+                            <th>@lang('quickadmin.room_types.fields.rec_pax')</th>
+                            <th>@lang('quickadmin.quotations.fields.pax')</th>
+                            <th>Amount</th>
+
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -141,7 +142,14 @@
                         <tr>
                             <td class="no">1</td>
                             <td>
-                                <input type="text" class="name form-control" name="name[]" value="{{ old('name') }}">
+                                {!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}
+                                {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}
+                                <p class="help-block"></p>
+                                @if($errors->has('rooms_id'))
+                                    <p class="help-block">
+                                        {{ $errors->first('rooms_id') }}
+                                    </p>
+                                @endif
                             </td>
                             <td>
                                 <input type="text" class="fname form-control" name="fname[]" value="{{ old('fname') }}">
@@ -155,9 +163,7 @@
                             <td>
                                 <input type="text" class="totalmarks form-control" name="totalmarks[]">
                             </td>
-                            <td>
-                                <input type="text" class="percentage form-control" name="percentage[]">
-                            </td>
+                           
                             <td>
                                 <input type="button" class="btn btn-danger delete" value="x">
                             </td>
@@ -169,20 +175,20 @@
 
 
 
+
+                {{-- FEES --}}
                 <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Student Name</th>
-                                <th>Father Name</th>
-                                <th>Roll No</th>
-                                <th>Obtained Marks</th>
-                                <th>Total Marks</th>
-                                <th>%</th>
+                                <th>Fee</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                              
                                 <th>Delete</th>
                             </tr>
                         </thead>
-                        <tbody class="resultbody">
+                        <tbody class="resultbody2">
                             <tr>
                                 <td class="no">1</td>
                                 <td>
@@ -200,9 +206,9 @@
                                 <td>
                                     <input type="text" class="totalmarks form-control" name="totalmarks[]">
                                 </td>
-                                <td>
+                                {{-- <td>
                                     <input type="text" class="percentage form-control" name="percentage[]">
-                                </td>
+                                </td> --}}
                                 <td>
                                     <input type="button" class="btn btn-danger delete" value="x">
                                 </td>
@@ -210,96 +216,9 @@
     
                         </tbody>
                     </table>
-                    <center><input type="button" class="btn btn-lg btn-primary add" value="Add New Item">
+                    <center><input type="button" class="btn btn-lg btn-primary add2" value="Add New Item">
 
 
-
-
-
-            {{-- <!-- Room Selection -->
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('rooms_id'))
-                        <p class="help-block">
-                            {{ $errors->first('rooms_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-
-            <!-- Pax  -->
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('pax', trans('quickadmin.quotations.fields.pax').'*', ['class' => 'control-label']) !!}
-                    {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('pax'))
-                        <p class="help-block">
-                            {{ $errors->first('pax') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-
-            <!-- Fee Selection -->
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('fees_id', trans('quickadmin.quotations.fields.fee').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('fees_id', $fees, old('fees_id'), ['class' => 'form-control select2','name'=>'fees_id[]']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('fees_id'))
-                        <p class="help-block">
-                            {{ $errors->first('fees_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-
-
-            <!-- Room Selection -->
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('rooms_id'))
-                        <p class="help-block">
-                            {{ $errors->first('rooms_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-
-            <!-- Pax  -->
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('pax', trans('quickadmin.quotations.fields.pax').'*', ['class' => 'control-label']) !!}
-                    {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('pax'))
-                        <p class="help-block">
-                            {{ $errors->first('pax') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-
-            <!-- Fee Selection -->
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('fees_id', trans('quickadmin.quotations.fields.fee').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('fees_id', $fees, old('fees_id'), ['class' => 'form-control select2','name'=>'fees_id[]']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('fees_id'))
-                        <p class="help-block">
-                            {{ $errors->first('fees_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div> --}}
 
 
 
@@ -352,16 +271,32 @@
         $('.add').click(function () {
             var n = ($('.resultbody tr').length - 0) + 1;
             var tr = '<tr><td class="no">' + n + '</td>' +
-                    '<td><input type="text" class="name form-control" name="name[]" value="{{ old('name') }}"></td>'+
+                    '<td>{!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}{!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}<p class="help-block"></p>@if($errors->has('rooms_id'))<p class="help-block">{{ $errors->first('rooms_id') }}</p>@endif</td>'+
+                    '<td><input type="text" class="fname form-control" name="fname[]" value="{{ old('fname') }}"></td>'+
+                    '<td><input type="text" class="rollno form-control" name="rollno[]" value="{{ old('rollno') }}"></td>'+
+                    '<td><input type="text" class="obtainedmarks form-control" name="obtainedmarks[]" value="{{ old('email') }}"></td>'+
+                    '<td><input type="text" class="totalmarks form-control" name="totalmarks[]"></td>'+
+                    '<td><input type="button" class="btn btn-danger delete" value="x"></td></tr>';
+            $('.resultbody').append(tr);
+        });
+        $('.resultbody').delegate('.delete', 'click', function () {
+            $(this).parent().parent().remove();
+        });
+
+
+         $('.add2').click(function () {
+            var n = ($('.resultbody2 tr').length - 0) + 1;
+            var tr = '<tr><td class="no">' + n + '</td>' +
+                    '<td>{!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}{!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}<p class="help-block"></p>@if($errors->has('rooms_id'))<p class="help-block">{{ $errors->first('rooms_id') }}</p>@endif</td>'+
                     '<td><input type="text" class="fname form-control" name="fname[]" value="{{ old('fname') }}"></td>'+
                     '<td><input type="text" class="rollno form-control" name="rollno[]" value="{{ old('rollno') }}"></td>'+
                     '<td><input type="text" class="obtainedmarks form-control" name="obtainedmarks[]" value="{{ old('email') }}"></td>'+
                     '<td><input type="text" class="totalmarks form-control" name="totalmarks[]"></td>'+
                     '<td><input type="text" class="percentage form-control" name="percentage[]"></td>'+
                     '<td><input type="button" class="btn btn-danger delete" value="x"></td></tr>';
-            $('.resultbody').append(tr);
+            $('.resultbody2').append(tr);
         });
-        $('.resultbody').delegate('.delete', 'click', function () {
+        $('.resultbody2').delegate('.delete', 'click', function () {
             $(this).parent().parent().remove();
         });
 
