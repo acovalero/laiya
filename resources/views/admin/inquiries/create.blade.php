@@ -125,7 +125,7 @@
                             <td>Room Type</td>
                             <td>Pax</td>
                             <td>
-                                {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '0', 'required' => '','name'=>'pax[]']) !!}
+                                {!! Form::number('pax', old('pax'), ['class' => 'calc', 'placeholder' => '0', 'required' => '','name'=>'pax[]']) !!}
                                 <p class="help-block"></p>
                                 @if($errors->has('pax'))
                                     <p class="help-block">
@@ -133,11 +133,13 @@
                                     </p>
                                 @endif
                             </td>
-                            <td><p></p></td>
+                            <td>
+                                <span id="total"></span>
+                            </td>
                            
-                            {{-- <td>
+                            <!-- <td>
                                 <input type="button" class="btn btn-danger delete" value="x">
-                            </td> --}}
+                            </td> -->
                         </tr>
 
                     </tbody>
@@ -213,6 +215,8 @@
    
     <script>
 
+        
+
         $(document).ready(function(){
             $('.datetimepicker').datetimepicker({
             format: "YYYY-MM-DD HH:mm"
@@ -220,6 +224,23 @@
             // $('.daterange').datetimepicker({
             // format: "YYYY-MM-DD"
         });
+
+        $('.calc').change(function(){
+                var subtotal = 0;
+                var total = 0;
+                $('.calc').each(function(){
+                    if($(this).val() != '')
+                    {
+                        subtotal += parseInt($(this).val());
+                    }
+                    total = subtotal*5000;
+                });
+                $('#total').html(total);
+            });
+        
+
+
+         
 
         $("#check_me").on('click', function(){
             var checkin = $("#checkin").val();
@@ -301,8 +322,7 @@
         // $('#UnitCost').attr('value',sum);
         // $('#TotalAll').attr('value',total);
 
-        });
-
+        })(jQuery);
         
     </script>
 @stop
