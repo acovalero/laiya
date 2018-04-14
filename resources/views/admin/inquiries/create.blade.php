@@ -86,6 +86,7 @@
   
     {{-- QUOTATION --}}
     
+    
     <h3 class="page-title">@lang('quickadmin.quotations.title')</h3>
     <div class="panel panel-default">
         <div class="panel-heading">
