@@ -50,9 +50,9 @@
                         <table class="table table-bordered table-striped {{ count($inquiries) > 0 ? 'datatable' : '' }} @can('inquiry_delete') @if ( request('show_deleted') != 1 ) dt-select @endif @endcan">
                                 <thead>
                                     <tr>
-                                        @can('inquiry_delete')
+                                        {{-- @can('inquiry_delete')
                                             @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
-                                        @endcan
+                                        @endcan --}}
                 
                                         <th>@lang('quickadmin.inquiries.fields.customer')</th>
                                         {{-- <th>@lang('quickadmin.inquiries.fields.room')</th> --}}
@@ -71,9 +71,9 @@
                                     @if (count($inquiries) > 0)
                                         @foreach ($inquiries as $inquiry)
                                             <tr data-entry-id="{{ $inquiry->id }}">
-                                                @can('inquiry_delete')
+                                                {{-- @can('inquiry_delete')
                                                     @if ( request('show_deleted') != 1 )<td></td>@endif
-                                                @endcan
+                                                @endcan --}}
                 
                                                 <td field-key='customer'>{{ $inquiry->customer->full_name or '' }}</td>
                                                 {{-- <td field-key='room'>{{ $inquiry->room->room_number or '' }}</td> --}}
