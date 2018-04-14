@@ -156,8 +156,6 @@
                                 <th>Fee</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
-                              
-                                {{-- <th>Delete</th> --}}
                             </tr>
                         </thead>
                         <tbody class="resultbody2">
@@ -184,9 +182,7 @@
                                         </p>
                                     @endif
                                 </td>
-                                {{-- <td>
-                                    <input type="button" class="btn btn-danger delete" value="x">
-                                </td> --}}
+                               
                             </tr>
     
                         </tbody>
