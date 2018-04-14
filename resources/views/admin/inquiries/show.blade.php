@@ -16,10 +16,10 @@
                             <th>@lang('quickadmin.inquiries.fields.customer')</th>
                             <td field-key='customer'>{{ $inquiry->customer->first_name or '' }}</td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <th>@lang('quickadmin.inquiries.fields.room')</th>
                             <td field-key='room'>{{ $inquiry->room->room_number or '' }}</td>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <th>@lang('quickadmin.inquiries.fields.time-from')</th>
                             <td field-key='time_from'>{{ $inquiry->time_from }}</td>
@@ -40,7 +40,8 @@
 
             <a href="{{ route('admin.inquiries.index') }}" class="btn btn-default">@lang('quickadmin.qa_back_to_list')</a>
 
-            <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Add Quotation</button>
+            {{-- <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Add Quotation</button> --}}
+
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <form method="post" action="">

@@ -104,10 +104,10 @@
                                                 @else
                                                 <td>
                                                     @can('inquiry_view')
-                                                    <a href="{{ route('admin.inquiries.show',[$inquiry->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                                    <a href="{{ route('admin.inquiries.show',[$inquiry->id]) }}" class="btn btn-md btn-primary">@lang('quickadmin.qa_view')</a>
                                                     @endcan
                                                     @can('inquiry_edit')
-                                                    <a href="{{ route('admin.inquiries.edit',[$inquiry->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                                    {{-- <a href="{{ route('admin.inquiries.edit',[$inquiry->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                                     @endcan
                                                     @can('inquiry_delete')
                                                     {!! Form::open(array(
@@ -116,7 +116,7 @@
                                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
                                                         'route' => ['admin.inquiries.destroy', $inquiry->id])) !!}
                                                     {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                                    {!! Form::close() !!}
+                                                    {!! Form::close() !!} --}}
                                                     @endcan
                                                 </td>
                                                 @endif
