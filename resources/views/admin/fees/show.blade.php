@@ -14,7 +14,7 @@
                     <table class="table table-bordered table-striped">
                         <tr>
                             <th>@lang('quickadmin.fees.fields.name')</th>
-                            <td field-key='name'>{{ $fee->name}}</td>
+                            <td field-key='name'>{{ $fee->$fee_types->name}}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.fees.fields.price')</th>

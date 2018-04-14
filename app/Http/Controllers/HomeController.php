@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\User;
 use App\Inquiry;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -37,8 +38,9 @@ class HomeController extends Controller
 
         $inquiries = Inquiry::all();
         $customers = Customer::all();
+        $users = User::all();
 
-        return view('home', compact('inquiries', 'customers'));
+        return view('home', compact('inquiries', 'customers', 'users'));
 
         // return view('home');
     }

@@ -13,8 +13,10 @@ class RoomTypeSeed extends Seeder
     {
         $items = [
             
-            ['id' => 1, 'room_type' => 'Couple','price' => '5000','rec_pax' => '2','max_pax' => '3'],
-            ['id' => 2, 'room_type' => 'Family','price' => '8400','rec_pax' => '4','max_pax' => '8'],
+            ['id' => 1, 'room_type' => 'Couple Room','price' => '5000','rec_pax' => '2','max_pax' => '3'],
+            ['id' => 2, 'room_type' => 'Family Room','price' => '8400','rec_pax' => '4','max_pax' => '8'],
+            ['id' => 3, 'room_type' => 'Premiere Family Room','price' => '8900','rec_pax' => '4','max_pax' => '8'],
+            ['id' => 4, 'room_type' => 'Quad Room','price' => '7200','rec_pax' => '4','max_pax' => '5'],
 
         ];
 

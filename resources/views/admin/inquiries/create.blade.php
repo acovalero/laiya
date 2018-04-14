@@ -1,5 +1,17 @@
 @extends('layouts.app')
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+        $('#texttwo').keyup(function(){
+            var textone;
+            var texttwo;
+            textone = parseFloat($('#textone').val());
+            texttwo = parseFloat($('#texttwo').val());
+            var result = textone + texttwo;
+            $('#result').val(result.toFixed(2));
+    
+    
+        });
+</script>
 
 
 
@@ -81,48 +93,7 @@
         </div> 
         <div class="panel-body">
 
-            {{-- <!-- Room Selection -->
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('rooms_id'))
-                        <p class="help-block">
-                            {{ $errors->first('rooms_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-         -->
-            <!-- Pax  -->
-            <!-- <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('pax', trans('quickadmin.quotations.fields.pax').'*', ['class' => 'control-label']) !!}
-                    {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('pax'))
-                        <p class="help-block">
-                            {{ $errors->first('pax') }}
-                        </p>
-                    @endif
-                </div>
-            </div> -->
-
-            <!-- Fee Selection -->
-            <!-- <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('fees_id', trans('quickadmin.quotations.fields.fee').'', ['class' => 'control-label']) !!}
-                    {!! Form::select('fees_id', $fees, old('fees_id'), ['class' => 'form-control select2','name'=>'fees_id[]']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('fees_id'))
-                        <p class="help-block">
-                            {{ $errors->first('fees_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div> --}}
-
+            <h3>Choose Room:</h3>
 
             {{-- ROOMS --}}
             <table class="table table-striped">
@@ -135,7 +106,7 @@
                             <th>@lang('quickadmin.quotations.fields.pax')</th>
                             <th>Amount</th>
 
-                            <th>Delete</th>
+                            {{-- <th>Delete</th> --}}
                         </tr>
                     </thead>
                     <tbody class="resultbody">
@@ -154,7 +125,7 @@
                             <td>Room Type</td>
                             <td>Pax</td>
                             <td>
-                                {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}
+                                {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '0', 'required' => '','name'=>'pax[]']) !!}
                                 <p class="help-block"></p>
                                 @if($errors->has('pax'))
                                     <p class="help-block">
@@ -162,22 +133,23 @@
                                     </p>
                                 @endif
                             </td>
-                            <td><input type="text" class="form-control" name="amount[]"></td>
+                            <td><p></p></td>
                            
-                            <td>
+                            {{-- <td>
                                 <input type="button" class="btn btn-danger delete" value="x">
-                            </td>
+                            </td> --}}
                         </tr>
 
                     </tbody>
                 </table>
-                <center><input type="button" class="btn btn-lg btn-primary add" value="Add New Item">
+                {{-- <center><input type="button" class="btn btn-lg btn-primary add" value="Add New Item"> --}}
 
 
+                <h3>Additional Fees:</h3>    
 
 
                 {{-- FEES --}}
-                {{-- <table class="table table-striped">
+                <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -185,16 +157,24 @@
                                 <th>Price</th>
                                 <th>Quantity</th>
                               
-                                <th>Delete</th>
+                                {{-- <th>Delete</th> --}}
                             </tr>
                         </thead>
                         <tbody class="resultbody2">
                             <tr>
                                 <td class="no">1</td>
                                 <td>
+                                    {!! Form::select('fees_id', $fees, old('fees_id'), ['class' => 'form-control select2','name'=>'fees_id[]']) !!}
+                                    <p class="help-block"></p>
+                                    @if($errors->has('fees_id'))
+                                        <p class="help-block">
+                                            {{ $errors->first('fees_id') }}
+                                        </p>
+                                    @endif
+                                </td>
+                                <td>
                                     <input type="text" class="name form-control" name="name[]" value="{{ old('name') }}">
                                 </td>
-                                <td><input type="text" class="name form-control" name="name[]" value="{{ old('name') }}"></td>
                                 <td>
                                     {!! Form::number('pax', old('pax'), ['class' => 'form-control', 'placeholder' => '', 'required' => '','name'=>'pax[]']) !!}
                                     <p class="help-block"></p>
@@ -204,14 +184,14 @@
                                         </p>
                                     @endif
                                 </td>
-                                <td>
+                                {{-- <td>
                                     <input type="button" class="btn btn-danger delete" value="x">
-                                </td>
+                                </td> --}}
                             </tr>
     
                         </tbody>
                     </table>
-                    <center><input type="button" class="btn btn-lg btn-primary add2" value="Add New Item"> --}}
+                    {{-- <center><input type="button" class="btn btn-lg btn-primary add2" value="Add New Item"> --}}
 
 
 
@@ -263,6 +243,7 @@
             }
         });
 
+        // For multiple rooms
         $('.add').click(function () {
             var n = ($('.resultbody tr').length - 0) + 1;
             var tr = '<tr><td class="no">' + n + '</td>' +
@@ -278,22 +259,51 @@
             $(this).parent().parent().remove();
         });
 
+        // For multiple fees
+         $('.add2').click(function () {
+            var n = ($('.resultbody2 tr').length - 0) + 1;
+            var tr = '<tr><td class="no">' + n + '</td>' +
+                    '<td>{!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}z{!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}<p class="help-block"></p>@if($errors->has('rooms_id'))<p class="help-block">{{ $errors->first('rooms_id') }}</p>@endif</td>'+
+                    '<td><input type="text" class="fname form-control" name="fname[]" value="{{ old('fname') }}"></td>'+
+                    '<td><input type="text" class="rollno form-control" name="rollno[]" value="{{ old('rollno') }}"></td>'+
+                    '<td><input type="text" class="obtainedmarks form-control" name="obtainedmarks[]" value="{{ old('email') }}"></td>'+
+                    '<td><input type="text" class="totalmarks form-control" name="totalmarks[]"></td>'+
+                    '<td><input type="text" class="percentage form-control" name="percentage[]"></td>'+
+                    '<td><input type="button" class="btn btn-danger delete" value="x"></td></tr>';
+            $('.resultbody2').append(tr);
+        });
+        $('.resultbody2').delegate('.delete', 'click', function () {
+            $(this).parent().parent().remove();
+        });
 
-        //  $('.add2').click(function () {
-        //     var n = ($('.resultbody2 tr').length - 0) + 1;
-        //     var tr = '<tr><td class="no">' + n + '</td>' +
-        //             '<td>{!! Form::label('rooms_id', trans('quickadmin.quotations.fields.room').'', ['class' => 'control-label']) !!}z{!! Form::select('rooms_id', $rooms, old('rooms_id'), ['class' => 'form-control select2','name'=>'rooms_id[]']) !!}<p class="help-block"></p>@if($errors->has('rooms_id'))<p class="help-block">{{ $errors->first('rooms_id') }}</p>@endif</td>'+
-        //             '<td><input type="text" class="fname form-control" name="fname[]" value="{{ old('fname') }}"></td>'+
-        //             '<td><input type="text" class="rollno form-control" name="rollno[]" value="{{ old('rollno') }}"></td>'+
-        //             '<td><input type="text" class="obtainedmarks form-control" name="obtainedmarks[]" value="{{ old('email') }}"></td>'+
-        //             '<td><input type="text" class="totalmarks form-control" name="totalmarks[]"></td>'+
-        //             '<td><input type="text" class="percentage form-control" name="percentage[]"></td>'+
-        //             '<td><input type="button" class="btn btn-danger delete" value="x"></td></tr>';
-        //     $('.resultbody2').append(tr);
-        // });
-        // $('.resultbody2').delegate('.delete', 'click', function () {
-        //     $(this).parent().parent().remove();
-        // });
+        // $("#calculate").click(function(){
+        // var a = $('#coverstockP').val();
+        // var b = $('#insidestockP').val();
+        // var c = $('#coveroffsetP').val();
+        // var d = $('#insideoffsetP').val();
+        // var e = $('#otheroffsetP').val();
+        // var f = $('#laminationP').val();
+        // var g = $('#letterpressP').val();
+        // var h = $('#bindingP').val();
+        // var i = $('#diecutP').val();
+        // var j = $('#diecutrunningP').val();
+        // var k = $('#othersP').val();
+        // var l = $('#quantity').val();
+        // var m = $('#pagenumber').val();
+
+        // var temp = parseInt(a, 10) + parseInt(b, 10) + parseInt(c, 10) +
+        //            parseInt(d, 10) + parseInt(e, 10) + parseInt(f, 10) +
+        //            parseInt(g, 10) + parseInt(h, 10) + parseInt(i, 10) +
+        //            parseInt(j, 10) + parseInt(k, 10);
+
+        // var sum = parseInt(temp, 10) * parseInt(m, 10);
+        // var total = parseInt(sum, 10) * parseInt(l, 10);
+
+        // $( "#UnitCost" ).prop( "disabled", false);
+        // $('#TotalAll').prop( "disabled", false);
+
+        // $('#UnitCost').attr('value',sum);
+        // $('#TotalAll').attr('value',total);
 
         });
 

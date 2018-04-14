@@ -84,7 +84,7 @@ s
                 </div>
             </div><!-- Nav tabs -->
 
-            <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Add Inquiry</button>
+            {{-- <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">Add Inquiry</button> --}}
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="purchaseLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <form method="post" action="">
@@ -130,7 +130,7 @@ s
                         <th>@lang('quickadmin.inquiries.fields.room')</th>
                         <th>@lang('quickadmin.inquiries.fields.time-from')</th>
                         <th>@lang('quickadmin.inquiries.fields.time-to')</th>
-                        <th>@lang('quickadmin.inquiries.fields.additional-information')</th>
+                        {{-- <th>@lang('quickadmin.inquiries.fields.additional-information')</th> --}}
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -147,7 +147,7 @@ s
                                 <td field-key='room'>{{ $inquiry->room->room_number or '' }}</td>
                                 <td field-key='time_from'>{{ $inquiry->time_from }}</td>
                                 <td field-key='time_to'>{{ $inquiry->time_to }}</td>
-                                <td field-key='additional_information'>{!! $inquiry->additional_information !!}</td>
+                                {{-- <td field-key='additional_information'>{!! $inquiry->additional_information !!}</td> --}}
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('inquiry_delete')
@@ -178,7 +178,7 @@ s
                                     <a href="{{ route('admin.inquiries.edit',[$inquiry->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                     @endcan
                                     @can('inquiry_delete')
-{!! Form::open(array(
+                                    {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
