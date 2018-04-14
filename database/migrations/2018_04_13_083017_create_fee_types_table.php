@@ -13,12 +13,12 @@ class CreateFeeTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('fee_types', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->double('price');
-            $table->timestamps();
-        });
+        // Schema::create('fee_types', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('name');
+        //     $table->double('price');
+        //     $table->timestamps();
+        // });
     }
 
     /**

@@ -10,10 +10,7 @@ class Fee extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['quantity'];
+    protected $fillable = ['name','price'];
 
-    public function fee_types()
-    {
-        return $this->belongsTo(FeeType::class, 'fees_types_id')->withTrashed();
-    }
+
 }

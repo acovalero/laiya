@@ -10,5 +10,4 @@ class FeeType extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name','price'];
 }

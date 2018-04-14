@@ -16,10 +16,10 @@ class CreateFeesTable extends Migration
     {
         Schema::create('fees', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('quantity')->nullable();
+            $table->string('name');
+            $table->double('price');
             $table->timestamps();
 
-            $table->integer('fee_types_id')->nullable()->unsigned();
             $table->softDeletes();
         });
     }

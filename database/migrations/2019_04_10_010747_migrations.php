@@ -51,10 +51,10 @@ class Migrations extends Migration
         });
 
         //Fee Type List
-        Schema::table('fees', function (Blueprint $table) {
-            $table->foreign('fee_types_id')
-                ->references('id')->on('fee_types')->onDelete('cascade');
-        });
+        // Schema::table('fees', function (Blueprint $table) {
+        //     $table->foreign('fee_types_id')
+        //         ->references('id')->on('fee_types')->onDelete('cascade');
+        // });
 
         //Booking
         Schema::table('bookings', function (Blueprint $table) {
