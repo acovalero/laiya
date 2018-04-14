@@ -48,8 +48,8 @@
                 <tr>
                     <th/></th>
                     <th>@lang('quickadmin.rooms.fields.room-number')</th>
-                    <th>@lang('quickadmin.rooms.fields.floor')</th>
-                    <th>@lang('quickadmin.rooms.fields.description')</th>
+                    <th>Floor</th>
+                    <th>Description</th>
                 </tr>
                 </thead>
                 <tbody>
