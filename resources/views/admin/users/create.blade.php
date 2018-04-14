@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+<script>
+    $('#password, #confirm_password').on('keyup', function () {
+    if ($('#password').val() == $('#confirm_password').val()) {
+        $('#message').html('Matching').css('color', 'green');
+    } else 
+        $('#message').html('Not Matching').css('color', 'red');
+    });
+</script>
+
 @section('content')
     <h3 class="page-title">@lang('quickadmin.users.title')</h3>
     {!! Form::open(['method' => 'POST', 'route' => ['admin.users.store']]) !!}
@@ -46,6 +55,16 @@
                     @endif
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label>Confirm Password:
+                        <input type="password" name="confirm_password" id="confirm_password" class="form-control" />
+                        <span id='message'></span>
+                    </label>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('role_id', trans('quickadmin.users.fields.role').'*', ['class' => 'control-label']) !!}
@@ -66,3 +85,16 @@
     {!! Form::close() !!}
 @stop
 
+@section('javascript')
+    @parent
+
+    <script>
+        $('#password, #confirm_password').on('keyup', function () {
+        if ($('#password').val() == $('#confirm_password').val()) {
+            $('#message').html('Matching').css('color', 'green');
+        } else 
+            $('#message').html('Not Matching').css('color', 'red');
+        });
+    </script>
+
+@stop
