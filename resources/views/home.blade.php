@@ -47,7 +47,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading"><center><h4>@lang('quickadmin.qa_reminders')</h4></center></div>
                 <div class="panel-body">
-                        <table class="table table-bordered table-striped {{ count($inquiries) > 0 ? 'datatable' : '' }} @can('inquiry_delete') @if ( request('show_deleted') != 1 ) dt-select @endif @endcan">
+                        <table class="table table-bordered table-striped {{ count($inquiries) > 0 ? 'datatable' : '' }} @can('inquiry_delete') @if ( request('show_deleted') != 1 )  @endif @endcan">
                                 <thead>
                                     <tr>
                                         {{-- @can('inquiry_delete')
